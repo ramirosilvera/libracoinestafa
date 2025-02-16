@@ -18,22 +18,26 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       date: "Inicio del Hype",
       title: "Promoción Política",
-      description: "LIBRA Coin se promocionó fuertemente, generando expectativas como un token para financiar proyectos del Viva La Libertad Project."
+      description: "LIBRA Coin se promocionó fuertemente, generando expectativas como un token para financiar proyectos del Viva La Libertad Project.",
+      image: "https://via.placeholder.com/600x300"
     },
     {
       date: "Inflado del Market Cap",
       title: "Market Cap de $4.5B",
-      description: "Con pocas ventas a precios altos, se calculó un market cap inflado artificialmente, sin respaldo de inversión real."
+      description: "Con pocas ventas a precios altos, se calculó un market cap inflado artificialmente, sin respaldo de inversión real.",
+      image: "https://via.placeholder.com/600x300"
     },
     {
       date: "Venta Masiva",
       title: "Insiders Retiran $87.4M",
-      description: "Los insiders vendieron sus tokens en la cima, extrayendo grandes sumas y dejando al token vulnerable."
+      description: "Los insiders vendieron sus tokens en la cima, extrayendo grandes sumas y dejando al token vulnerable.",
+      image: "https://via.placeholder.com/600x300"
     },
     {
       date: "Colapso del Valor",
       title: "El Precio se Desploma",
-      description: "Tras la venta masiva, el precio se desplomó, dejando a muchos inversores con tokens sin valor."
+      description: "Tras la venta masiva, el precio se desplomó, dejando a muchos inversores con tokens sin valor.",
+      image: "https://via.placeholder.com/600x300"
     }
   ];
 
@@ -45,7 +49,18 @@ document.addEventListener('DOMContentLoaded', function () {
     eventDiv.innerHTML = `
       <h3>${event.date} - ${event.title}</h3>
       <p>${event.description}</p>
+      <img src="${event.image}" alt="${event.title}" class="responsive-img">
     `;
     timelineContainer.appendChild(eventDiv);
+  });
+
+  // Animación de scroll suave para los enlaces del menú
+  document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   });
 });

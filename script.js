@@ -1,11 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
   /* --- Acordeón --- */
-  const accordionButtons = document.querySelectorAll('.accordion-button');
-  accordionButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      this.classList.toggle('active');
-      const content = this.nextElementSibling;
-      content.style.display = (window.getComputedStyle(content).display === 'none') ? 'block' : 'none';
+  const accordionItems = document.querySelectorAll('.accordion-item');
+  accordionItems.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+    header.addEventListener('click', () => {
+      item.classList.toggle('active');
+      const content = item.querySelector('.accordion-content');
+      if (item.classList.contains('active')) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = null;
+      }
     });
   });
 
@@ -13,129 +18,112 @@ document.addEventListener('DOMContentLoaded', function() {
   const timelineData = [
     {
       date: "Día 1",
-      title: "Lanzamiento y Promoción",
-      description: "Se lanza LIBRA Coin con fuerte promoción, respaldada por figuras como Javier Milei."
+      title: "Lanzamiento & Promoción",
+      description: "LIBRA Coin se lanza con gran publicidad, respaldada por figuras como Javier Milei."
     },
     {
       date: "Día 2",
       title: "Inflado Artificial",
-      description: "Se manipula el market cap a $4.5B usando precios inflados sin respaldo real."
+      description: "El valor se manipula para alcanzar un market cap de $4.5B, sin respaldo real."
     },
     {
       date: "Día 3",
       title: "Venta Masiva",
-      description: "Los insiders venden tokens por $87.4M, retirando grandes sumas y dejando el sistema vulnerable."
+      description: "Los insiders retiran $87.4M, dejando el sistema vulnerable."
     },
     {
       date: "Día 4",
-      title: "Colapso del Precio",
-      description: "El valor se desploma, revelando el fraude y dejando a los inversores con pérdidas."
+      title: "Colapso",
+      description: "El precio se desploma, revelando la estafa."
     }
   ];
-  const timelineContainer = document.getElementById('timeline');
+  const timelineContainer = document.querySelector('.timeline');
   if (timelineContainer) {
     timelineData.forEach(event => {
-      const eventDiv = document.createElement('div');
-      eventDiv.classList.add('timeline-event');
-      eventDiv.innerHTML = `<h3>${event.date} - ${event.title}</h3><p>${event.description}</p>`;
-      timelineContainer.appendChild(eventDiv);
+      const eventEl = document.createElement('div');
+      eventEl.className = 'timeline-event';
+      eventEl.innerHTML = `<h3>${event.date} - ${event.title}</h3><p>${event.description}</p>`;
+      eventEl.style.animation = "fadeInUp 0.6s ease";
+      timelineContainer.appendChild(eventEl);
     });
   }
 
-  /* --- Carrusel Interactivo (Recurso Pedagógico) --- */
-  const btnInfografia = document.getElementById('btnInfografia');
-  const modalInfografia = document.getElementById('modalInfografia');
+  /* --- Carrusel Interactivo --- */
+  const btnCarousel = document.getElementById('btnCarousel');
+  const modalCarousel = document.getElementById('modalCarousel');
   const closeModal = document.getElementById('closeModal');
-  const infographicContent = document.getElementById('infographic-content');
-  const prevStepBtn = document.getElementById('prevStep');
-  const nextStepBtn = document.getElementById('nextStep');
+  const carouselContent = document.getElementById('carouselContent');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const indicator = document.getElementById('carouselIndicator');
 
-  // Contenido del carrusel
-  const infographicSteps = [
-    {
-      title: "Paso 1: Promoción",
-      text: "Javier Milei respalda públicamente LIBRA Coin, generando gran expectación.",
-      icon: "📢"
-    },
-    {
-      title: "Paso 2: Inflado Artificial",
-      text: "Se manipula el market cap a $4.5B mediante precios inflados y especulación.",
-      icon: "📈"
-    },
-    {
-      title: "Paso 3: Venta de Insiders",
-      text: "Los insiders retiran $87.4M vendiendo tokens en la cima.",
-      icon: "💰"
-    },
-    {
-      title: "Paso 4: Colapso",
-      text: "El precio se desploma, dejando a los inversores con tokens sin valor.",
-      icon: "💥"
-    },
-    {
-      title: "Paso 5: Consecuencias Legales",
-      text: "Se inician investigaciones por fraude, manipulación y lavado de dinero.",
-      icon: "⚖️"
-    }
+  const carouselSteps = [
+    { title: "Paso 1: Promoción", text: "Javier Milei respalda públicamente LIBRA Coin, generando expectación.", icon: "📢" },
+    { title: "Paso 2: Inflado", text: "Se manipula el market cap a $4.5B mediante precios inflados.", icon: "📈" },
+    { title: "Paso 3: Venta", text: "Insiders retiran $87.4M vendiendo tokens en la cima.", icon: "💰" },
+    { title: "Paso 4: Colapso", text: "El precio se desploma y los inversores pierden su dinero.", icon: "💥" },
+    { title: "Paso 5: Consecuencias", text: "Se inician investigaciones por fraude y lavado de dinero.", icon: "⚖️" }
   ];
   
   let currentStep = 0;
-  function updateInfographic() {
-    const step = infographicSteps[currentStep];
-    infographicContent.innerHTML = `
-      <div class="infographic-icon">${step.icon}</div>
-      <h4>${step.title}</h4>
-      <p>${step.text}</p>
-      <p id="carousel-indicator">Paso ${currentStep + 1} de ${infographicSteps.length}</p>
+  
+  function updateCarousel() {
+    const step = carouselSteps[currentStep];
+    carouselContent.innerHTML = `
+      <div class="carousel-step">
+        <div class="carousel-icon">${step.icon}</div>
+        <h4>${step.title}</h4>
+        <p>${step.text}</p>
+      </div>
     `;
-    // Desactivar botones en los límites
-    prevStepBtn.disabled = (currentStep === 0);
-    nextStepBtn.disabled = (currentStep === infographicSteps.length - 1);
-    prevStepBtn.style.opacity = prevStepBtn.disabled ? 0.5 : 1;
-    nextStepBtn.style.opacity = nextStepBtn.disabled ? 0.5 : 1;
+    indicator.textContent = `Paso ${currentStep + 1} de ${carouselSteps.length}`;
+    prevBtn.disabled = currentStep === 0;
+    nextBtn.disabled = currentStep === carouselSteps.length - 1;
+    prevBtn.style.opacity = prevBtn.disabled ? 0.5 : 1;
+    nextBtn.style.opacity = nextBtn.disabled ? 0.5 : 1;
   }
   
-  btnInfografia.addEventListener('click', function() {
-    modalInfografia.style.display = 'block';
+  btnCarousel.addEventListener('click', () => {
+    modalCarousel.style.display = "flex";
     currentStep = 0;
-    updateInfographic();
+    updateCarousel();
   });
   
-  closeModal.addEventListener('click', function() {
-    modalInfografia.style.display = 'none';
+  closeModal.addEventListener('click', () => {
+    modalCarousel.style.display = "none";
   });
   
-  window.addEventListener('click', function(event) {
-    if (event.target === modalInfografia) {
-      modalInfografia.style.display = 'none';
+  window.addEventListener('click', (e) => {
+    if (e.target === modalCarousel) {
+      modalCarousel.style.display = "none";
     }
   });
   
-  prevStepBtn.addEventListener('click', function() {
+  prevBtn.addEventListener('click', () => {
     if (currentStep > 0) {
       currentStep--;
-      updateInfographic();
+      updateCarousel();
     }
   });
   
-  nextStepBtn.addEventListener('click', function() {
-    if (currentStep < infographicSteps.length - 1) {
+  nextBtn.addEventListener('click', () => {
+    if (currentStep < carouselSteps.length - 1) {
       currentStep++;
-      updateInfographic();
+      updateCarousel();
     }
   });
-
+  
   /* --- Quiz --- */
   const quizForm = document.getElementById('quizForm');
   const submitQuiz = document.getElementById('submitQuiz');
-  const quizResultado = document.getElementById('quizResultado');
+  const quizResult = document.getElementById('quizResult');
   
-  submitQuiz.addEventListener('click', function() {
+  submitQuiz.addEventListener('click', () => {
     let score = 0;
-    const q1 = quizForm.elements['q1'].value;
-    const q2 = quizForm.elements['q2'].value;
-    if (q1 === 'b') score++;
-    if (q2 === 'b') score++;
-    quizResultado.innerHTML = `<p>Obtuviste ${score} de 2 respuestas correctas.</p>`;
+    const answer1 = quizForm.elements['q1'].value;
+    const answer2 = quizForm.elements['q2'].value;
+    if (answer1 === 'b') score++;
+    if (answer2 === 'b') score++;
+    quizResult.innerHTML = `<p>Obtuviste ${score} de 2 respuestas correctas.</p>`;
   });
 });

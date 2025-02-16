@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Funcionalidad del Accordion
   const accButtons = document.querySelectorAll('.accordion-button');
   accButtons.forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
       this.classList.toggle('active');
       const content = this.nextElementSibling;
       if (content.style.display === "block") {
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  
+
   // Datos para la cronología
   const timelineData = [
     {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
       description: "Tras la venta masiva, el precio se desplomó, dejando a muchos inversores con tokens sin valor."
     }
   ];
-  
+
   // Insertamos dinámicamente los eventos de la cronología en la web
   const timelineContainer = document.querySelector('.timeline');
   timelineData.forEach(event => {

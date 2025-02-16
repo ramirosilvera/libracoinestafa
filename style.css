@@ -1,0 +1,58 @@
+/* styles.css */
+:root {
+    --primary-color: #dc3545;
+    --secondary-color: #28a745;
+    --background: #f8f9fa;
+    --text-dark: #212529;
+}
+
+/* Navigation */
+.nav-sticky {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+}
+
+.nav-link {
+    transition: border-bottom 0.3s ease;
+}
+
+.nav-link.active {
+    border-bottom: 3px solid var(--primary-color);
+}
+
+/* Network Grid */
+.network-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.node {
+    transition: transform 0.3s ease;
+}
+
+.node:focus-within {
+    box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .network-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-sticky ul {
+        flex-direction: column;
+    }
+}

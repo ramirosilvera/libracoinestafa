@@ -1,4 +1,4 @@
-/* Reset & Estilos Globales */
+/* Reset & Global */
 * {
   margin: 0;
   padding: 0;
@@ -6,12 +6,12 @@
 }
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: #f0f0f0;
+  background: #f7f7f7;
   color: #333;
   line-height: 1.6;
 }
 
-/* Header / Sección Hero */
+/* Header / Hero */
 header {
   background: linear-gradient(135deg, #ff6a00, #ee0979);
   color: #fff;
@@ -27,7 +27,6 @@ header {
   margin-bottom: 20px;
 }
 .btn {
-  display: inline-block;
   background: #fff;
   color: #ee0979;
   padding: 10px 20px;
@@ -37,10 +36,10 @@ header {
   transition: background 0.3s ease;
 }
 .btn:hover {
-  background: #f8f8f8;
+  background: #f0f0f0;
 }
 
-/* Navegación */
+/* Navigation */
 nav {
   background: #333;
 }
@@ -63,7 +62,7 @@ nav ul li a:hover {
   background: #555;
 }
 
-/* Contenido Principal */
+/* Main Content */
 main {
   max-width: 1000px;
   margin: 20px auto;
@@ -80,8 +79,11 @@ section h2 {
   color: #ee0979;
   text-align: center;
 }
+section p, section li {
+  font-size: 1.1em;
+}
 
-/* Línea de Tiempo */
+/* Timeline */
 #timeline {
   position: relative;
   margin: 20px 0;
@@ -112,7 +114,7 @@ section h2 {
   line-height: 1.4;
 }
 
-/* Acordeón */
+/* Accordion */
 .accordion-button {
   background: #eee;
   border: none;
@@ -136,7 +138,7 @@ section h2 {
   border-bottom: 1px solid #ccc;
 }
 
-/* Tarjetas de Recursos */
+/* Resource Cards */
 .resource-cards {
   display: flex;
   flex-wrap: wrap;
@@ -170,7 +172,7 @@ section h2 {
   background: #d70f70;
 }
 
-/* Modal */
+/* Modal para el Carrusel Interactivo */
 .modal {
   display: none;
   position: fixed;
@@ -180,15 +182,15 @@ section h2 {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.7);
 }
 .modal-content {
   background: #fff;
-  margin: 10% auto;
+  margin: 5% auto;
   padding: 20px;
   border-radius: 8px;
   width: 90%;
-  max-width: 600px;
+  max-width: 700px;
   position: relative;
   text-align: center;
 }
@@ -198,6 +200,47 @@ section h2 {
   top: 10px;
   font-size: 1.5em;
   cursor: pointer;
+}
+
+/* Carrusel Interactivo */
+#infographic-carousel {
+  margin-top: 20px;
+}
+#infographic-content {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#infographic-content h4 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+#infographic-content p {
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+.infographic-icon {
+  font-size: 4em;
+  margin-bottom: 15px;
+}
+.carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.carousel-controls button {
+  padding: 10px 20px;
+  border: none;
+  background: #ee0979;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.carousel-controls button:hover {
+  background: #d70f70;
 }
 
 /* Quiz */

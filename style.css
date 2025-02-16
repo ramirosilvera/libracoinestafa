@@ -1,22 +1,22 @@
-/* Reset & Global */
+/* Reset y estilos globales */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background: #f7f7f7;
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
   color: #333;
   line-height: 1.6;
 }
 
-/* Header / Hero */
+/* Header / Sección Hero */
 header {
   background: linear-gradient(135deg, #ff6a00, #ee0979);
   color: #fff;
-  padding: 60px 20px;
   text-align: center;
+  padding: 60px 20px;
 }
 .hero h1 {
   font-size: 3em;
@@ -30,16 +30,16 @@ header {
   background: #fff;
   color: #ee0979;
   padding: 10px 20px;
-  text-decoration: none;
   border-radius: 25px;
+  text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s ease;
+  transition: background 0.3s;
 }
 .btn:hover {
   background: #f0f0f0;
 }
 
-/* Navigation */
+/* Navegación */
 nav {
   background: #333;
 }
@@ -53,16 +53,15 @@ nav ul li {
 }
 nav ul li a {
   color: #fff;
-  text-decoration: none;
   padding: 15px;
-  display: block;
-  transition: background 0.3s ease;
+  text-decoration: none;
+  transition: background 0.3s;
 }
 nav ul li a:hover {
   background: #555;
 }
 
-/* Main Content */
+/* Contenido Principal */
 main {
   max-width: 1000px;
   margin: 20px auto;
@@ -76,19 +75,24 @@ section {
 }
 section h2 {
   margin-bottom: 20px;
-  color: #ee0979;
   text-align: center;
+  color: #ee0979;
 }
 section p, section li {
   font-size: 1.1em;
 }
 
+/* Conceptos Básicos */
+#conceptos ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
 /* Timeline */
 #timeline {
-  position: relative;
-  margin: 20px 0;
-  padding-left: 40px;
   border-left: 2px dashed #ccc;
+  padding-left: 40px;
+  margin: 20px 0;
 }
 .timeline-event {
   margin-bottom: 30px;
@@ -111,10 +115,9 @@ section p, section li {
 }
 .timeline-event p {
   font-size: 1em;
-  line-height: 1.4;
 }
 
-/* Accordion */
+/* Acordeón */
 .accordion-button {
   background: #eee;
   border: none;
@@ -124,7 +127,7 @@ section p, section li {
   font-size: 1.1em;
   cursor: pointer;
   border-bottom: 1px solid #ccc;
-  transition: background 0.3s ease;
+  transition: background 0.3s;
   margin-top: 10px;
 }
 .accordion-button:hover,
@@ -138,7 +141,7 @@ section p, section li {
   border-bottom: 1px solid #ccc;
 }
 
-/* Resource Cards */
+/* Tarjetas de Recursos */
 .resource-cards {
   display: flex;
   flex-wrap: wrap;
@@ -153,7 +156,7 @@ section p, section li {
   width: 300px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
 }
 .card:hover {
   transform: translateY(-5px);
@@ -166,13 +169,13 @@ section p, section li {
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s;
 }
 .card button:hover {
   background: #d70f70;
 }
 
-/* Modal para el Carrusel Interactivo */
+/* Modal (Carrusel Interactivo) */
 .modal {
   display: none;
   position: fixed;
@@ -181,7 +184,6 @@ section p, section li {
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
   background: rgba(0,0,0,0.7);
 }
 .modal-content {
@@ -213,6 +215,10 @@ section p, section li {
   align-items: center;
   justify-content: center;
 }
+#infographic-content .infographic-icon {
+  font-size: 4em;
+  margin-bottom: 15px;
+}
 #infographic-content h4 {
   margin-bottom: 10px;
   font-size: 1.5em;
@@ -221,9 +227,9 @@ section p, section li {
   font-size: 1.1em;
   margin: 10px 0;
 }
-.infographic-icon {
-  font-size: 4em;
-  margin-bottom: 15px;
+#infographic-content #carousel-indicator {
+  font-size: 0.9em;
+  color: #555;
 }
 .carousel-controls {
   display: flex;
@@ -237,7 +243,7 @@ section p, section li {
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s;
 }
 .carousel-controls button:hover {
   background: #d70f70;
@@ -265,7 +271,7 @@ section p, section li {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s;
 }
 #quizForm button:hover {
   background: #d70f70;

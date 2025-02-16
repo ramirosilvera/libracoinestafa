@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const prevStepBtn = document.getElementById('prevStep');
   const nextStepBtn = document.getElementById('nextStep');
 
-  // Carrusel usando contenido 100% textual e iconos (sin imágenes externas)
+  // Carrusel con contenido textual e iconos
   const infographicSteps = [
     {
       title: "Paso 1: Promoción",
@@ -84,13 +84,22 @@ document.addEventListener('DOMContentLoaded', function() {
   ];
 
   let currentStep = 0;
+
+  // Función para actualizar el contenido del carrusel e indicar el paso actual
   function updateInfographic() {
     const step = infographicSteps[currentStep];
     infographicContent.innerHTML = `
       <div class="infographic-icon">${step.icon}</div>
       <h4>${step.title}</h4>
       <p>${step.text}</p>
+      <p id="carousel-indicator">Paso ${currentStep + 1} de ${infographicSteps.length}</p>
     `;
+    // Deshabilitar botones en los límites
+    prevStepBtn.disabled = (currentStep === 0);
+    nextStepBtn.disabled = (currentStep === infographicSteps.length - 1);
+    // Cambiar estilo de botones deshabilitados (opcional)
+    prevStepBtn.style.opacity = prevStepBtn.disabled ? 0.5 : 1;
+    nextStepBtn.style.opacity = nextStepBtn.disabled ? 0.5 : 1;
   }
 
   btnInfografia.addEventListener('click', function() {

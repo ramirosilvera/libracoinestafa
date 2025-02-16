@@ -1,190 +1,132 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoGuard - Descubre la Verdad sobre LIBRA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --neon-blue: #00f3ff;
-            --cyber-purple: #6c00ff;
-            --matrix-green: #00ff9d;
-            --dark-matter: #0a0a0f;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background: var(--dark-matter);
-            color: white;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .cyber-border {
-            border: 3px solid var(--neon-blue);
-            box-shadow: 0 0 15px var(--neon-blue);
-        }
-
-        /* Estilos del Asistente Virtual */
-        .bot-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .cyber-bot {
-            width: 60px;
-            height: 60px;
-            background: var(--cyber-purple);
-            border-radius: 50%;
-            cursor: pointer;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        /* Sistema de Quiz Interactivo */
-        .quiz-container {
-            display: grid;
-            gap: 1rem;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            margin: 2rem 0;
-        }
-
-        .quiz-option {
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .quiz-option:hover {
-            border-color: var(--matrix-green);
-            transform: scale(1.02);
-        }
-
-        /* Efectos Especiales */
-        .hack-effect {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hack-effect::before {
-            content: "";
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, 
-                transparent 25%,
-                var(--neon-blue) 50%,
-                transparent 75%);
-            animation: hack 0.5s linear infinite;
-        }
-
-        @keyframes hack {
-            to { transform: translate(-50%, -50%); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>La Estafa de LIBRA Coin: ¡Descubre la Verdad!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Vinculamos el CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Asistente Virtual -->
-    <div class="bot-container">
-        <div class="cyber-bot" id="cryptiBot">
-            <i class="fas fa-robot" style="color: white; font-size: 2rem;"></i>
-        </div>
+  <!-- Header / Hero -->
+  <header>
+    <div class="hero">
+      <h1>La Estafa de LIBRA Coin</h1>
+      <p>Descubre la verdad detrás del fraude y aprende de forma divertida.</p>
+      <a href="#historia" class="btn">¡Comienza Ahora!</a>
     </div>
+  </header>
 
-    <!-- Sección de Quiz Interactivo -->
-    <section class="quiz-container cyber-border">
-        <h2>¿Cuánto sabes de cripto-estafas? 🧠</h2>
-        <div class="quiz-option" data-correct="true">
-            ¿Un "rug pull" es cuando los desarrolladores abandonan el proyecto?
-        </div>
-        <div class="quiz-option" data-correct="false">
-            ¿El "pump and dump" es una estrategia legal?
-        </div>
+  <!-- Navegación -->
+  <nav>
+    <ul>
+      <li><a href="#introduccion">Inicio</a></li>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#detalles">Detalles del Fraude</a></li>
+      <li><a href="#recursos">Recursos Didácticos</a></li>
+      <li><a href="#quiz">Quiz</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido Principal -->
+  <main>
+    <!-- Sección: Introducción -->
+    <section id="introduccion">
+      <h2>¿Qué es LIBRA Coin?</h2>
+      <p>
+        LIBRA Coin fue promocionada como el token ideal para financiar el 
+        <a href="https://www.vivalalibertadproject.com/es/es-ar" target="_blank">Viva La Libertad Project</a>, 
+        prometiendo revolucionar la economía argentina. Sin embargo, lo que ocurrió fue un fraude espectacular que dejó a miles de inversores con pérdidas.
+      </p>
     </section>
 
-    <!-- Panel Legal Interactivo -->
-    <div class="legal-case hack-effect">
-        <h3><i class="fas fa-gavel"></i> Caso #001: LIBRA Coin</h3>
-        <div class="evidence-accordion">
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <i class="fas fa-file-invoice-dollar"></i> Delito Financiero
-                </div>
-                <div class="accordion-content">
-                    <p>Artículo 172 CP - Estafa mediante manipulación de mercado...</p>
-                </div>
-            </div>
+    <!-- Sección: Historia (Línea de Tiempo) -->
+    <section id="historia">
+      <h2>La Historia de la Estafa</h2>
+      <div id="timeline">
+        <!-- Los eventos se cargarán dinámicamente mediante JS -->
+      </div>
+    </section>
+
+    <!-- Sección: Detalles del Fraude (Acordeón Interactivo) -->
+    <section id="detalles">
+      <h2>Detalles del Fraude</h2>
+      <p>Descubre cómo se orquestó el fraude de LIBRA Coin:</p>
+      <div class="accordion">
+        <button class="accordion-button">¿Qué es un "Pump and Dump"?</button>
+        <div class="accordion-content">
+          <p>
+            Es un esquema en el que se inflan artificialmente los precios para que los insiders vendan en la cima, dejando a los inversores con tokens sin valor.
+          </p>
         </div>
-    </div>
+        <button class="accordion-button">¿Qué es un "Rug Pull"?</button>
+        <div class="accordion-content">
+          <p>
+            Ocurre cuando los desarrolladores retiran la liquidez del proyecto, impidiendo que los inversores puedan vender sus tokens y recuperar su dinero.
+          </p>
+        </div>
+        <button class="accordion-button">Manipulación del Market Cap</button>
+        <div class="accordion-content">
+          <p>
+            El market cap se calcula multiplicando el precio por la cantidad total de tokens en circulación. En el caso de LIBRA Coin, se infló hasta $4.5B sin que existiera respaldo real de inversión.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <script>
-        // Asistente Virtual CryptiBot
-        class CryptiBot {
-            constructor() {
-                this.bot = document.getElementById('cryptiBot');
-                this.isActive = false;
-                this.setupEventListeners();
-            }
+    <!-- Sección: Recursos Didácticos -->
+    <section id="recursos">
+      <h2>Recursos Didácticos</h2>
+      <div class="resource-cards">
+        <div class="card">
+          <h3>Infografía Interactiva</h3>
+          <p>Visualiza de forma gráfica cómo se desarrolló el fraude.</p>
+          <button onclick="mostrarInfografia()">Ver Infografía</button>
+        </div>
+        <div class="card">
+          <h3>Video Explicativo</h3>
+          <p>Aprende sobre estafas en criptomonedas de forma divertida.</p>
+          <button onclick="window.open('https://www.youtube.com/watch?v=wxIN4PkJVG4', '_blank')">Ver Video</button>
+        </div>
+      </div>
+      <!-- Modal para la infografía -->
+      <div id="infografia" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="cerrarInfografia()">&times;</span>
+          <h3>Infografía de la Estafa de LIBRA Coin</h3>
+          <p>(Aquí se mostraría una infografía interactiva. Este es un marcador de posición.)</p>
+        </div>
+      </div>
+    </section>
 
-            setupEventListeners() {
-                this.bot.addEventListener('click', () => {
-                    this.isActive ? this.hidePanel() : this.showPanel();
-                    this.isActive = !this.isActive;
-                });
-            }
+    <!-- Sección: Quiz Divertido -->
+    <section id="quiz">
+      <h2>Quiz: ¿Cuánto sabes sobre LIBRA Coin?</h2>
+      <form id="quizForm">
+        <div class="quiz-question">
+          <p><strong>1.</strong> ¿Qué significa un market cap inflado?</p>
+          <label><input type="radio" name="q1" value="a"> Que hay millones de dólares reales invertidos.</label><br>
+          <label><input type="radio" name="q1" value="b"> Que se multiplicó el precio por el total de tokens, sin respaldo real.</label><br>
+          <label><input type="radio" name="q1" value="c"> Que la moneda es estable y segura.</label>
+        </div>
+        <div class="quiz-question">
+          <p><strong>2.</strong> ¿Qué es un "Rug Pull"?</p>
+          <label><input type="radio" name="q2" value="a"> Una estrategia de inversión a largo plazo.</label><br>
+          <label><input type="radio" name="q2" value="b"> Un ataque en el que los desarrolladores retiran la liquidez y abandonan el proyecto.</label><br>
+          <label><input type="radio" name="q2" value="c"> Una técnica de marketing para aumentar la demanda.</label>
+        </div>
+        <button type="button" onclick="evaluarQuiz()">Enviar Respuestas</button>
+      </form>
+      <div id="quizResultado"></div>
+    </section>
+  </main>
 
-            showPanel() {
-                const panel = document.createElement('div');
-                panel.innerHTML = `
-                    <div class="bot-panel cyber-border">
-                        <h3>🤖 CryptiBot al rescate!</h3>
-                        <p>Pregúntame sobre:</p>
-                        <ul>
-                            <li>🔍 Cómo detectar estafas</li>
-                            <li>⚖️ Aspectos legales</li>
-                            <li>📈 Educación financiera</li>
-                        </ul>
-                    </div>
-                `;
-                panel.style.position = 'fixed';
-                panel.style.bottom = '100px';
-                panel.style.right = '20px';
-                document.body.appendChild(panel);
-            }
-        }
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Análisis Criptográfico. Todos los derechos reservados.</p>
+  </footer>
 
-        // Sistema de Quiz Inteligente
-        document.querySelectorAll('.quiz-option').forEach(option => {
-            option.addEventListener('click', function() {
-                const isCorrect = this.dataset.correct === 'true';
-                this.style.background = isCorrect ? '#00ff9d30' : '#ff005530';
-                this.style.borderColor = isCorrect ? 'var(--matrix-green)' : '#ff0055';
-            });
-        });
-
-        // Efectos de Carga Dinámica
-        window.addEventListener('load', () => {
-            new CryptiBot();
-            document.body.style.opacity = '1';
-        });
-    </script>
+  <!-- Vinculamos el archivo JS -->
+  <script src="script.js"></script>
 </body>
 </html>

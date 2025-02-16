@@ -41,6 +41,10 @@ nav ul li a {
   text-decoration: none;
 }
 
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
 /* Contenedor principal */
 main {
   max-width: 900px;
@@ -48,11 +52,21 @@ main {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Secciones */
 section {
   margin-bottom: 40px;
+}
+
+section h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+section p {
+  color: #555;
 }
 
 /* Cronología */
@@ -78,6 +92,14 @@ section {
   top: 5px;
 }
 
+.timeline-event h3 {
+  color: #333;
+}
+
+.timeline-event p {
+  color: #555;
+}
+
 /* Accordion (contenido desplegable) */
 .accordion-button {
   background: #eee;
@@ -96,8 +118,12 @@ section {
   background: #ddd;
 }
 
+.accordion-button.active {
+  background: #ccc;
+}
+
 .accordion-content {
-  padding: 0 15px;
+  padding: 15px;
   display: none;
   overflow: hidden;
   background: #f9f9f9;

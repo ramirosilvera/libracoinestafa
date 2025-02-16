@@ -1,0 +1,113 @@
+/* Reset básico y estilos globales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
+}
+
+/* Encabezado */
+header {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+/* Navegación */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  background: #444;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Contenedor principal */
+main {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Secciones */
+section {
+  margin-bottom: 40px;
+}
+
+/* Cronología */
+.timeline {
+  position: relative;
+  padding-left: 20px;
+  border-left: 2px solid #ccc;
+}
+
+.timeline-event {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.timeline-event::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: #333;
+  border-radius: 50%;
+  position: absolute;
+  left: -7px;
+  top: 5px;
+}
+
+/* Accordion (contenido desplegable) */
+.accordion-button {
+  background: #eee;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+  border-bottom: 1px solid #ccc;
+}
+
+.accordion-button:hover {
+  background: #ddd;
+}
+
+.accordion-content {
+  padding: 0 15px;
+  display: none;
+  overflow: hidden;
+  background: #f9f9f9;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Pie de página */
+footer {
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+  color: #777;
+}

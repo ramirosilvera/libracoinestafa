@@ -5,11 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', function() {
       this.classList.toggle('active');
       const content = this.nextElementSibling;
-      if (window.getComputedStyle(content).display === 'none') {
-        content.style.display = 'block';
-      } else {
-        content.style.display = 'none';
-      }
+      content.style.display = (window.getComputedStyle(content).display === 'none') ? 'block' : 'none';
     });
   });
 
@@ -17,23 +13,23 @@ document.addEventListener('DOMContentLoaded', function() {
   const timelineData = [
     {
       date: "Día 1",
-      title: "Inicio de la Promoción",
-      description: "LIBRA Coin es lanzada y promocionada intensamente, con el respaldo público de figuras como Javier Milei."
+      title: "Lanzamiento y Promoción",
+      description: "Se lanza LIBRA Coin con fuerte promoción, respaldada por figuras como Javier Milei."
     },
     {
       date: "Día 2",
       title: "Inflado Artificial",
-      description: "Se manipula el market cap hasta alcanzar $4.5B mediante precios inflados y especulación."
+      description: "Se manipula el market cap a $4.5B usando precios inflados sin respaldo real."
     },
     {
       date: "Día 3",
-      title: "Venta Masiva de Insiders",
+      title: "Venta Masiva",
       description: "Los insiders venden tokens por $87.4M, retirando grandes sumas y dejando el sistema vulnerable."
     },
     {
       date: "Día 4",
       title: "Colapso del Precio",
-      description: "El valor de LIBRA Coin se desploma, exponiendo la verdadera naturaleza del fraude."
+      description: "El valor se desploma, revelando el fraude y dejando a los inversores con pérdidas."
     }
   ];
   const timelineContainer = document.getElementById('timeline');
@@ -46,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  /* --- Modal y Carrusel Interactivo (Recurso Pedagógico) --- */
+  /* --- Carrusel Interactivo (Recurso Pedagógico) --- */
   const btnInfografia = document.getElementById('btnInfografia');
   const modalInfografia = document.getElementById('modalInfografia');
   const closeModal = document.getElementById('closeModal');
@@ -54,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const prevStepBtn = document.getElementById('prevStep');
   const nextStepBtn = document.getElementById('nextStep');
 
-  // Carrusel con contenido textual e iconos
+  // Contenido del carrusel
   const infographicSteps = [
     {
       title: "Paso 1: Promoción",
@@ -63,12 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     {
       title: "Paso 2: Inflado Artificial",
-      text: "Se manipula el market cap hasta $4.5B mediante precios inflados y especulación.",
+      text: "Se manipula el market cap a $4.5B mediante precios inflados y especulación.",
       icon: "📈"
     },
     {
       title: "Paso 3: Venta de Insiders",
-      text: "Insiders retiran $87.4M vendiendo tokens en la cima del hype.",
+      text: "Los insiders retiran $87.4M vendiendo tokens en la cima.",
       icon: "💰"
     },
     {
@@ -78,14 +74,12 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     {
       title: "Paso 5: Consecuencias Legales",
-      text: "Se inician investigaciones por fraude, manipulación del mercado y lavado de dinero.",
+      text: "Se inician investigaciones por fraude, manipulación y lavado de dinero.",
       icon: "⚖️"
     }
   ];
-
+  
   let currentStep = 0;
-
-  // Función para actualizar el contenido del carrusel e indicar el paso actual
   function updateInfographic() {
     const step = infographicSteps[currentStep];
     infographicContent.innerHTML = `
@@ -94,37 +88,36 @@ document.addEventListener('DOMContentLoaded', function() {
       <p>${step.text}</p>
       <p id="carousel-indicator">Paso ${currentStep + 1} de ${infographicSteps.length}</p>
     `;
-    // Deshabilitar botones en los límites
+    // Desactivar botones en los límites
     prevStepBtn.disabled = (currentStep === 0);
     nextStepBtn.disabled = (currentStep === infographicSteps.length - 1);
-    // Cambiar estilo de botones deshabilitados (opcional)
     prevStepBtn.style.opacity = prevStepBtn.disabled ? 0.5 : 1;
     nextStepBtn.style.opacity = nextStepBtn.disabled ? 0.5 : 1;
   }
-
+  
   btnInfografia.addEventListener('click', function() {
     modalInfografia.style.display = 'block';
     currentStep = 0;
     updateInfographic();
   });
-
+  
   closeModal.addEventListener('click', function() {
     modalInfografia.style.display = 'none';
   });
-
+  
   window.addEventListener('click', function(event) {
     if (event.target === modalInfografia) {
       modalInfografia.style.display = 'none';
     }
   });
-
+  
   prevStepBtn.addEventListener('click', function() {
     if (currentStep > 0) {
       currentStep--;
       updateInfographic();
     }
   });
-
+  
   nextStepBtn.addEventListener('click', function() {
     if (currentStep < infographicSteps.length - 1) {
       currentStep++;
@@ -136,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const quizForm = document.getElementById('quizForm');
   const submitQuiz = document.getElementById('submitQuiz');
   const quizResultado = document.getElementById('quizResultado');
-
+  
   submitQuiz.addEventListener('click', function() {
     let score = 0;
     const q1 = quizForm.elements['q1'].value;

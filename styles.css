@@ -1,0 +1,279 @@
+/* Reset y estilos globales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header y sección Hero */
+header {
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: #fff;
+  color: #ee0979;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #f8f8f8;
+}
+
+/* Navegación */
+nav {
+  background: #333;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+  background: #555;
+}
+
+/* Contenido Principal */
+main {
+  max-width: 1000px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  margin-bottom: 20px;
+  color: #ee0979;
+  text-align: center;
+}
+
+/* Línea de Tiempo */
+#timeline {
+  position: relative;
+  margin: 20px 0;
+  padding-left: 40px;
+  border-left: 2px dashed #ccc;
+}
+
+.timeline-event {
+  margin-bottom: 30px;
+  position: relative;
+  animation: fadeIn 1s ease;
+}
+
+.timeline-event::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: #ee0979;
+  border-radius: 50%;
+  position: absolute;
+  left: -10px;
+  top: 5px;
+}
+
+.timeline-event h3 {
+  margin-bottom: 5px;
+  font-size: 1.2em;
+}
+
+.timeline-event p {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/* Acordeón */
+.accordion-button {
+  background: #eee;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 15px;
+  font-size: 1.1em;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.accordion-button:hover {
+  background: #ddd;
+}
+
+.accordion-button.active {
+  background: #ccc;
+}
+
+.accordion-content {
+  padding: 15px;
+  display: none;
+  background: #f9f9f9;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Recursos Didácticos */
+.resource-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  background: #ee0979;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.card button:hover {
+  background: #d70f70;
+}
+
+/* Modal para la Infografía */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  text-align: center;
+}
+
+.modal-content .close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* Quiz */
+#quizForm {
+  margin-top: 20px;
+}
+
+.quiz-question {
+  margin-bottom: 20px;
+}
+
+.quiz-question p {
+  font-weight: bold;
+}
+
+.quiz-question label {
+  display: block;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+#quizForm button {
+  background: #ee0979;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#quizForm button:hover {
+  background: #d70f70;
+}
+
+#quizResultado {
+  margin-top: 20px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: #fff;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

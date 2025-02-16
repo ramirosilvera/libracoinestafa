@@ -3,181 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis de Estafas Cripto - Caso LIBRA Coin</title>
-    <style>
-        :root {
-            --color-estafa: #ff4444;
-            --color-real: #44ff44;
-            --color-alerta: #ffd700;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f5f5f5;
-        }
-
-        .bandera-estafa {
-            border: 3px solid var(--color-estafa);
-            padding: 15px;
-            margin: 20px 0;
-            position: relative;
-            transition: all 0.3s;
-        }
-
-        .bandera-estafa:hover {
-            background: #ffe6e6;
-        }
-
-        .tooltip {
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            background: var(--color-alerta);
-            color: black;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: help;
-        }
-
-        .comparativa {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .seccion-legal {
-            background: #333;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px 0;
-        }
-
-        #linea-tiempo {
-            position: relative;
-            padding-left: 20px;
-            margin: 40px 0;
-        }
-
-        .paso-estafa {
-            padding: 15px;
-            margin: 20px 0;
-            background: white;
-            border-left: 5px solid var(--color-estafa);
-        }
-
-        .chatbot {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--color-alerta);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        }
-    </style>
+    <title>El Caso Libra Coin - Análisis Forense</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <!-- Simulación sitio web tipo estafa -->
-    <div class="bandera-estafa">
-        <div class="tooltip" title="Red Flag: Promesas exageradas">⚠️</div>
-        <h1>🚀 Viva La Libertad Project</h1>
-        <p>Únete a la revolución financiera con nuestro token LIBRA Coin</p>
-        <ul>
-            <li>✔️ Rentabilidad garantizada del 300%</li>
-            <li>✔️ Respaldado por líderes políticos</li>
-            <li>✔️ Tecnología blockchain revolucionaria</li>
-        </ul>
-        <button style="background: var(--color-estafa); color: white;">INVERTIR AHORA</button>
-    </div>
-
-    <!-- Análisis comparativo -->
-    <div class="comparativa">
-        <div style="border-right: 2px solid #ccc; padding-right: 20px;">
-            <h2 style="color: var(--color-estafa);">Características de Estafa</h2>
+    <header>
+        <h1>🔍 Investigación: La Estafa de Libra Coin</h1>
+        <p>Un análisis forense de cómo ocurrió la estafa y la posible responsabilidad de Javier Milei.</p>
+        <nav>
             <ul>
-                <li>❌ Rentabilidades garantizadas</li>
-                <li>❌ Equipo anónimo o ficticio</li>
-                <li>❌ Urgencia para invertir</li>
-                <li>❌ Falta de documentación técnica</li>
+                <li><a href="#timeline">📅 Línea de Tiempo</a></li>
+                <li><a href="#fraude">🚨 Esquema de Fraude</a></li>
+                <li><a href="#milei">⚖ Milei y la Estafa</a></li>
+                <li><a href="#testimonios">🗣 Testimonios</a></li>
+                <li><a href="#faq">❓ Preguntas Frecuentes</a></li>
             </ul>
+        </nav>
+    </header>
+
+    <section id="timeline">
+        <h2>📅 Línea de Tiempo del Fraude</h2>
+        <div class="timeline">
+            <div class="event">
+                <h3>📢 Enero 2024</h3>
+                <p>Javier Milei promociona Libra Coin como una inversión "segura".</p>
+            </div>
+            <div class="event">
+                <h3>📈 Febrero 2024</h3>
+                <p>La criptomoneda sube artificialmente de precio gracias a insiders.</p>
+            </div>
+            <div class="event">
+                <h3>💥 Marzo 2024</h3>
+                <p>Se produce el rug pull: los creadores venden sus tokens y colapsa el valor.</p>
+            </div>
+            <div class="event">
+                <h3>🕵 Investigaciones</h3>
+                <p>Se descubren vínculos con políticos y promotores.</p>
+            </div>
         </div>
+    </section>
 
-        <div>
-            <h2 style="color: var(--color-real);">Proyecto Real</h2>
-            <ul>
-                <li>✅ Rentabilidades históricas (no garantizadas)</li>
-                <li>✅ Equipo identificable y con experiencia</li>
-                <li>✅ Transparencia total</li>
-                <li>✅ Tecnología verificable</li>
-            </ul>
+    <section id="fraude">
+        <h2>🚨 Cómo Funcionó la Estafa</h2>
+        <div class="infografia">
+            <p>Pasa el mouse sobre los íconos para ver detalles.</p>
+            <div class="fraude-grid">
+                <div class="fraude-item" data-info="Promoción masiva con promesas de riqueza.">
+                    📢 Promoción
+                </div>
+                <div class="fraude-item" data-info="Creadores compran tokens para inflar el precio.">
+                    📈 Inflado de precio
+                </div>
+                <div class="fraude-item" data-info="Insiders venden sus tokens y huyen con el dinero.">
+                    💥 Rug Pull
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Explicación de la estafa -->
-    <div id="linea-tiempo">
-        <h2>📜 Cómo funcionó la estafa:</h2>
-        <div class="paso-estafa">
-            <h3>Fase 1: Creación de expectativas (2022)</h3>
-            <p>- Campaña en redes sociales con influencers</p>
-            <p>- Artículos pagados en medios financieros</p>
+    <section id="milei">
+        <h2>⚖ ¿Cuál fue la responsabilidad de Milei?</h2>
+        <p>Analizamos si la promoción de Libra Coin por Milei podría constituir fraude financiero.</p>
+    </section>
+
+    <section id="testimonios">
+        <h2>🗣 Testimonios Reales</h2>
+        <div class="carrusel">
+            <button class="prev">◀</button>
+            <div class="slide"></div>
+            <button class="next">▶</button>
         </div>
+    </section>
 
-        <div class="paso-estafa">
-            <h3>Fase 2: Pump artificial (2023)</h3>
-            <p>- Compra coordinada para inflar el precio</p>
-            <p>- Falsos reportes de adopción masiva</p>
+    <section id="faq">
+        <h2>❓ Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <h3>¿Cómo evitar caer en este tipo de estafas? 🔎</h3>
+            <p class="respuesta">No confíes en inversiones con promesas irreales y siempre investiga la legitimidad del proyecto.</p>
         </div>
+    </section>
 
-        <div class="paso-estafa">
-            <h3>Fase 3: Dump y desaparición (2024)</h3>
-            <p>- Venta masiva de los creadores</p>
-            <p>- Desactivación de canales de comunicación</p>
-        </div>
-    </div>
-
-    <!-- Análisis legal -->
-    <div class="seccion-legal">
-        <h2>⚖️ Implicaciones Legales</h2>
-        <p>Delitos cometidos según legislación Argentina:</p>
-        <ul>
-            <li>Art. 172 CP: Estafa</li>
-            <li>Art. 304 CP: Lavado de dinero</li>
-            <li>Ley 26.733: Manipulación de mercado</li>
-        </ul>
-        <p>Posibles consecuencias:</p>
-        <ul>
-            <li>Hasta 10 años de prisión</li>
-            <li>Multas de hasta 5x lo defraudado</li>
-            <li>Embargo de bienes</li>
-        </ul>
-    </div>
-
-    <div class="chatbot">
-        🤖 CryptoGuard: ¿Dudas sobre proyectos sospechosos? ¡Pregúntame!
-    </div>
-
-    <script>
-        // Simulación de interacción
-        document.querySelectorAll('.bandera-estafa').forEach(element => {
-            element.addEventListener('click', () => {
-                alert("¡Alerta! Esta característica es típica de estafa:\n" + 
-                     element.querySelector('li').innerText);
-            });
-        });
-
-        // Animaciones educativas
-        const pasos = document.querySelectorAll('.paso-estafa');
-        pasos.forEach((paso, index) => {
-            setTimeout(() => {
-                paso.style.transform = 'translateX(0)';
-                paso.style.opacity = '1';
-            }, index * 300);
-        });
-    </script>
+    <footer>
+        <p>&copy; 2025 Investigación Cripto - Todos los derechos reservados</p>
+    </footer>
 </body>
 </html>

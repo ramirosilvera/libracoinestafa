@@ -1,16 +1,20 @@
-// Esperamos a que el DOM se cargue completamente
 document.addEventListener('DOMContentLoaded', function() {
-  // Funcionalidad del Acordeón
-  const accButtons = document.querySelectorAll('.accordion-button');
-  accButtons.forEach(button => {
+  /* --- Acordeón --- */
+  const accordionButtons = document.querySelectorAll('.accordion-button');
+  accordionButtons.forEach(button => {
     button.addEventListener('click', function() {
       this.classList.toggle('active');
       const content = this.nextElementSibling;
-      content.style.display = (content.style.display === "block") ? "none" : "block";
+      // Usamos getComputedStyle para comprobar el display actual
+      if (window.getComputedStyle(content).display === 'none') {
+        content.style.display = 'block';
+      } else {
+        content.style.display = 'none';
+      }
     });
   });
 
-  // Datos para la Línea de Tiempo (Historia)
+  /* --- Línea de Tiempo --- */
   const timelineData = [
     {
       date: "Día 1",
@@ -34,38 +38,49 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   ];
 
-  // Cargar la línea de tiempo dinámicamente
   const timelineContainer = document.getElementById('timeline');
-  timelineData.forEach(event => {
-    const eventDiv = document.createElement('div');
-    eventDiv.classList.add('timeline-event');
-    eventDiv.innerHTML = `
-      <h3>${event.date} - ${event.title}</h3>
-      <p>${event.description}</p>
-    `;
-    timelineContainer.appendChild(eventDiv);
+  if (timelineContainer) {
+    timelineData.forEach(event => {
+      const eventDiv = document.createElement('div');
+      eventDiv.classList.add('timeline-event');
+      eventDiv.innerHTML = `
+        <h3>${event.date} - ${event.title}</h3>
+        <p>${event.description}</p>
+      `;
+      timelineContainer.appendChild(eventDiv);
+    });
+  }
+
+  /* --- Modal para Infografía --- */
+  const btnInfografia = document.getElementById('btnInfografia');
+  const modalInfografia = document.getElementById('modalInfografia');
+  const closeModal = document.getElementById('closeModal');
+
+  btnInfografia.addEventListener('click', function() {
+    modalInfografia.style.display = 'block';
   });
 
-  // Funciones para el Modal de la Infografía
-  window.mostrarInfografia = function() {
-    document.getElementById('infografia').style.display = "block";
-  };
+  closeModal.addEventListener('click', function() {
+    modalInfografia.style.display = 'none';
+  });
 
-  window.cerrarInfografia = function() {
-    document.getElementById('infografia').style.display = "none";
-  };
+  window.addEventListener('click', function(event) {
+    if (event.target === modalInfografia) {
+      modalInfografia.style.display = 'none';
+    }
+  });
 
-  // Función para evaluar el Quiz
-  window.evaluarQuiz = function() {
-    const form = document.getElementById('quizForm');
-    const resultadoDiv = document.getElementById('quizResultado');
+  /* --- Quiz --- */
+  const quizForm = document.getElementById('quizForm');
+  const submitQuiz = document.getElementById('submitQuiz');
+  const quizResultado = document.getElementById('quizResultado');
+
+  submitQuiz.addEventListener('click', function() {
     let score = 0;
-    // Pregunta 1: Respuesta correcta es "b"
-    const q1 = form.elements['q1'].value;
-    if (q1 === 'b') { score++; }
-    // Pregunta 2: Respuesta correcta es "b"
-    const q2 = form.elements['q2'].value;
-    if (q2 === 'b') { score++; }
-    resultadoDiv.innerHTML = `<p>Obtuviste ${score} de 2 respuestas correctas.</p>`;
-  };
+    const q1 = quizForm.elements['q1'].value;
+    const q2 = quizForm.elements['q2'].value;
+    if (q1 === 'b') score++;
+    if (q2 === 'b') score++;
+    quizResultado.innerHTML = `<p>Obtuviste ${score} de 2 respuestas correctas.</p>`;
+  });
 });

@@ -1,134 +1,47 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis Documentado: Caso LIBRA Coin y Viva La Libertad</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilos anteriores (se mantienen igual) */
-    </style>
+    <title>Caso LIBRA Coin - Análisis Completo</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="contenedor-principal">
-        <h1>📄 Análisis Documentado: Caso LIBRA Coin</h1>
-        
-        <div class="navegacion-tabs">
-            <div class="tab activa" onclick="cambiarTab('testimonios')">Testimonios Reales</div>
-            <div class="tab" onclick="cambiarTab('linea-tiempo')">Cronología de la Estafa</div>
-            <div class="tab" onclick="cambiarTab('legales')">Implicaciones Legales</div>
-        </div>
+    <nav class="nav-sticky">
+        <ul>
+            <li><a href="#testimonios" class="nav-link active">Testimonios</a></li>
+            <li><a href="#cronologia" class="nav-link">Cronología</a></li>
+            <li><a href="#implicados" class="nav-link">Implicados</a></li>
+        </ul>
+    </nav>
 
-        <!-- Sección de Testimonios Verificados -->
-        <div id="testimonios" class="contenido-tab activo">
-            <div class="tarjeta-testimonio">
-                <h3>@fergmolina (X/Twitter)</h3>
-                <p>"LIBRA Coin prometía ser el futuro de las finanzas en Argentina, pero resultó ser una estafa bien orquestada. Los inversores no pueden retirar sus fondos."</p>
-                <a href="https://x.com/fergmolina/status/1891126301215355307" class="boton-verificacion" target="_blank">Ver publicación original</a>
+    <main class="container">
+        <!-- Sección Testimonios -->
+        <section id="testimonios" class="section active">
+            <!-- Contenido testimonios -->
+        </section>
+
+        <!-- Sección Cronología -->
+        <section id="cronologia" class="section">
+            <!-- Contenido cronología -->
+        </section>
+
+        <!-- Sección Implicados -->
+        <section id="implicados" class="section">
+            <div class="network-grid">
+                <div class="node" tabindex="0" role="button">
+                    <img src="milei.webp" alt="Javier Milei - Presidente" loading="lazy">
+                    <div class="node-info">
+                        <h3>Javier Milei</h3>
+                        <p class="role">Promotor principal</p>
+                    </div>
+                </div>
+                <!-- Más nodos -->
             </div>
+        </section>
+    </main>
 
-            <div class="tarjeta-testimonio">
-                <h3>@laderechadiario (X/Twitter)</h3>
-                <p>"El proyecto LIBRA Coin carece de respaldo técnico y legal. Las promesas de rentabilidad eran falsas y el equipo detrás del proyecto desapareció."</p>
-                <a href="https://x.com/laderechadiario/status/1890939634902765704" class="boton-verificacion" target="_blank">Ver hilo completo</a>
-            </div>
-
-            <div class="tarjeta-testimonio">
-                <h3>@cfkargentina (X/Twitter)</h3>
-                <p>"La estafa de LIBRA Coin es un ejemplo de cómo se manipula a los inversores con promesas falsas y respaldos políticos inexistentes."</p>
-                <a href="https://x.com/cfkargentina/status/1890801394354942397" class="boton-verificacion" target="_blank">Ver publicación original</a>
-            </div>
-        </div>
-
-        <!-- Línea de Tiempo Interactiva (Corregida) -->
-        <div id="linea-tiempo" class="contenido-tab">
-            <div class="punto-tiempo">
-                <h3>17:00 - Máximo Histórico</h3>
-                <p>• Market Cap alcanza $4.5B</p>
-                <p>• Precio: $221.51M por token</p>
-            </div>
-
-            <div class="punto-tiempo">
-                <h3>18:30 - Retiro de Insiders</h3>
-                <p>• $87.4M retirados en 30 minutos</p>
-                <p>• Transacciones verificables en Etherscan</p>
-            </div>
-
-            <div class="punto-tiempo">
-                <h3>19:15 - Inicio del Colapso</h3>
-                <p>• Caída del 50% en 45 minutos</p>
-                <p>• Volumen récord de ventas</p>
-            </div>
-
-            <div class="punto-tiempo">
-                <h3>20:00 - Pérdida Total</h3>
-                <p>• Market Cap cae a $0.1B</p>
-                <p>• 98% de pérdidas para inversores</p>
-            </div>
-        </div>
-
-        <!-- Análisis Legal -->
-        <div id="legales" class="contenido-tab seccion-legal">
-            <h2>⚖️ Implicaciones Legales Confirmadas</h2>
-            <ul>
-                <li><strong>Art. 172 CP (Estafa):</strong> Configurado por promesas falsas de rentabilidad</li>
-                <li><strong>Art. 304 bis CP (Lavado):</strong> Movimientos sospechosos detectados en blockchain</li>
-                <li><strong>Ley 25.246:</strong> Uso no autorizado de imagen pública</li>
-            </ul>
-            
-            <div class="documento-oficial">
-                <h3>📄 Documentación Oficial</h3>
-                <p>Expediente judicial abierto: Juzgado Nacional en lo Criminal y Correccional N° 15</p>
-                <a href="#link-real" class="boton-verificacion">Ver expediente (protegido por secreto sumarial)</a>
-            </div>
-        </div>
-
-        <!-- Módulo de Educación Interactiva -->
-        <div class="modulo-educativo">
-            <h2>🔍 Aprende a Identificar Estafas</h2>
-            <div class="quiz-interactivo">
-                <p>¿Cuál de estas es una red flag?</p>
-                <button class="opcion-quiz">Promesa de ganancias garantizadas</button>
-                <button class="opcion-quiz">Equipo técnico identificable</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Sistema de Tabs
-        function cambiarTab(tabId) {
-            document.querySelectorAll('.contenido-tab').forEach(tab => {
-                tab.classList.remove('activo');
-            });
-            document.querySelectorAll('.tab').forEach(t => {
-                t.classList.remove('activa');
-            });
-            document.getElementById(tabId).classList.add('activo');
-            event.currentTarget.classList.add('activa');
-        }
-
-        // Quiz Interactivo
-        document.querySelectorAll('.opcion-quiz').forEach(boton => {
-            boton.addEventListener('click', function() {
-                const correcta = this.textContent.includes('ganancias garantizadas');
-                this.style.background = correcta ? 'var(--color-alerta)' : 'var(--color-primario)';
-                if(correcta) {
-                    alert('✅ Correcto! Las ganancias garantizadas son siempre sospechosas');
-                }
-            });
-        });
-
-        // Sistema de Verificación
-        const verificarEnlaces = () => {
-            document.querySelectorAll('.boton-verificacion').forEach(enlace => {
-                enlace.addEventListener('click', function(e) {
-                    if(!confirm('Estás saliendo a contenido externo. ¿Continuar?')) {
-                        e.preventDefault();
-                    }
-                });
-            });
-        };
-        verificarEnlaces();
-    </script>
+    <script src="app.js" defer></script>
 </body>
 </html>

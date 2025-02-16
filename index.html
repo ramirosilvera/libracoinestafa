@@ -2,56 +2,54 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>La Estafa de LIBRA Coin: ¡Descubre la Verdad!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Vinculamos el CSS -->
+  <title>La Estafa de LIBRA Coin: ¡Descubre la Verdad!</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header / Hero -->
+  <!-- Header / Hero Section -->
   <header>
     <div class="hero">
       <h1>La Estafa de LIBRA Coin</h1>
-      <p>Descubre la verdad detrás del fraude y aprende de forma divertida.</p>
+      <p>Descubre la verdad detrás del fraude y aprende de forma divertida y didáctica.</p>
       <a href="#historia" class="btn">¡Comienza Ahora!</a>
     </div>
   </header>
 
-  <!-- Navegación -->
+  <!-- Navigation -->
   <nav>
     <ul>
       <li><a href="#introduccion">Inicio</a></li>
       <li><a href="#historia">Historia</a></li>
       <li><a href="#detalles">Detalles del Fraude</a></li>
-      <li><a href="#recursos">Recursos Didácticos</a></li>
+      <li><a href="#recursos">Recursos</a></li>
       <li><a href="#quiz">Quiz</a></li>
     </ul>
   </nav>
 
-  <!-- Contenido Principal -->
+  <!-- Main Content -->
   <main>
-    <!-- Sección: Introducción -->
+    <!-- Introducción -->
     <section id="introduccion">
       <h2>¿Qué es LIBRA Coin?</h2>
       <p>
-        LIBRA Coin fue promocionada como el token ideal para financiar el 
-        <a href="https://www.vivalalibertadproject.com/es/es-ar" target="_blank">Viva La Libertad Project</a>, 
-        prometiendo revolucionar la economía argentina. Sin embargo, lo que ocurrió fue un fraude espectacular que dejó a miles de inversores con pérdidas.
+        LIBRA Coin se presentó como el token para financiar el 
+        <a href="https://www.vivalalibertadproject.com/es/es-ar" target="_blank">Viva La Libertad Project</a>, prometiendo revolucionar la economía argentina. 
+        La realidad fue otra: un fraude espectacular que dejó a miles de inversores con pérdidas.
       </p>
     </section>
 
-    <!-- Sección: Historia (Línea de Tiempo) -->
+    <!-- Línea de Tiempo: Historia de la Estafa -->
     <section id="historia">
       <h2>La Historia de la Estafa</h2>
       <div id="timeline">
-        <!-- Los eventos se cargarán dinámicamente mediante JS -->
+        <!-- Se llenará dinámicamente con JavaScript -->
       </div>
     </section>
 
-    <!-- Sección: Detalles del Fraude (Acordeón Interactivo) -->
+    <!-- Detalles del Fraude: Acordeón Interactivo -->
     <section id="detalles">
       <h2>Detalles del Fraude</h2>
-      <p>Descubre cómo se orquestó el fraude de LIBRA Coin:</p>
       <div class="accordion">
         <button class="accordion-button">¿Qué es un "Pump and Dump"?</button>
         <div class="accordion-content">
@@ -68,54 +66,55 @@
         <button class="accordion-button">Manipulación del Market Cap</button>
         <div class="accordion-content">
           <p>
-            El market cap se calcula multiplicando el precio por la cantidad total de tokens en circulación. En el caso de LIBRA Coin, se infló hasta $4.5B sin que existiera respaldo real de inversión.
+            El market cap se calcula multiplicando el precio por el total de tokens. En LIBRA Coin se infló hasta $4.5B sin respaldo real.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Sección: Recursos Didácticos -->
+    <!-- Recursos Didácticos -->
     <section id="recursos">
       <h2>Recursos Didácticos</h2>
       <div class="resource-cards">
         <div class="card">
           <h3>Infografía Interactiva</h3>
-          <p>Visualiza de forma gráfica cómo se desarrolló el fraude.</p>
-          <button onclick="mostrarInfografia()">Ver Infografía</button>
+          <p>Visualiza de forma gráfica el desarrollo de la estafa.</p>
+          <button id="btnInfografia">Ver Infografía</button>
         </div>
         <div class="card">
           <h3>Video Explicativo</h3>
-          <p>Aprende sobre estafas en criptomonedas de forma divertida.</p>
+          <p>Aprende sobre estafas en criptomonedas de forma entretenida.</p>
           <button onclick="window.open('https://www.youtube.com/watch?v=wxIN4PkJVG4', '_blank')">Ver Video</button>
         </div>
       </div>
-      <!-- Modal para la infografía -->
-      <div id="infografia" class="modal">
+      <!-- Modal para la Infografía -->
+      <div id="modalInfografia" class="modal">
         <div class="modal-content">
-          <span class="close" onclick="cerrarInfografia()">&times;</span>
+          <span class="close" id="closeModal">&times;</span>
           <h3>Infografía de la Estafa de LIBRA Coin</h3>
-          <p>(Aquí se mostraría una infografía interactiva. Este es un marcador de posición.)</p>
+          <p>Aquí se mostraría una infografía interactiva (ejemplo ilustrativo).</p>
+          <img src="https://via.placeholder.com/500x300?text=Infograf%C3%ADa+Interactiva" alt="Infografía de LIBRA Coin">
         </div>
       </div>
     </section>
 
-    <!-- Sección: Quiz Divertido -->
+    <!-- Quiz Divertido -->
     <section id="quiz">
       <h2>Quiz: ¿Cuánto sabes sobre LIBRA Coin?</h2>
       <form id="quizForm">
         <div class="quiz-question">
-          <p><strong>1.</strong> ¿Qué significa un market cap inflado?</p>
-          <label><input type="radio" name="q1" value="a"> Que hay millones de dólares reales invertidos.</label><br>
-          <label><input type="radio" name="q1" value="b"> Que se multiplicó el precio por el total de tokens, sin respaldo real.</label><br>
-          <label><input type="radio" name="q1" value="c"> Que la moneda es estable y segura.</label>
+          <p><strong>1.</strong> ¿Qué implica un market cap inflado?</p>
+          <label><input type="radio" name="q1" value="a">Que hay millones de dólares reales invertidos.</label><br>
+          <label><input type="radio" name="q1" value="b">Que se multiplicó el precio por el total de tokens, sin respaldo real.</label><br>
+          <label><input type="radio" name="q1" value="c">Que la moneda es estable y segura.</label>
         </div>
         <div class="quiz-question">
           <p><strong>2.</strong> ¿Qué es un "Rug Pull"?</p>
-          <label><input type="radio" name="q2" value="a"> Una estrategia de inversión a largo plazo.</label><br>
-          <label><input type="radio" name="q2" value="b"> Un ataque en el que los desarrolladores retiran la liquidez y abandonan el proyecto.</label><br>
-          <label><input type="radio" name="q2" value="c"> Una técnica de marketing para aumentar la demanda.</label>
+          <label><input type="radio" name="q2" value="a">Una estrategia de inversión a largo plazo.</label><br>
+          <label><input type="radio" name="q2" value="b">Un ataque donde los desarrolladores retiran la liquidez y abandonan el proyecto.</label><br>
+          <label><input type="radio" name="q2" value="c">Una técnica de marketing para aumentar la demanda.</label>
         </div>
-        <button type="button" onclick="evaluarQuiz()">Enviar Respuestas</button>
+        <button type="button" id="submitQuiz">Enviar Respuestas</button>
       </form>
       <div id="quizResultado"></div>
     </section>
@@ -126,7 +125,6 @@
     <p>&copy; 2025 Análisis Criptográfico. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Vinculamos el archivo JS -->
   <script src="script.js"></script>
 </body>
 </html>

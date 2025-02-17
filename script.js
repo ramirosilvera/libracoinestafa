@@ -1,18 +1,25 @@
 // script.js
 document.addEventListener("DOMContentLoaded", () => {
     const startScreen = document.getElementById("start-screen");
+    const introScreen = document.getElementById("intro-screen");
     const investScreen = document.getElementById("invest-screen");
     const priceRiseScreen = document.getElementById("price-rise-screen");
     const collapseScreen = document.getElementById("collapse-screen");
-    const resultMessage = document.getElementById("result-message");
-    const restartBtn = document.getElementById("restart-btn");
+    const explanationScreen = document.getElementById("explanation-screen");
+    const conclusionScreen = document.getElementById("conclusion-screen");
 
     let userInvestment = 0;
-    let currentPrice = 1; // Precio inicial de $LIBRA
+    let currentPrice = 1;
 
     // Iniciar juego
     document.getElementById("start-btn").addEventListener("click", () => {
         startScreen.classList.add("hidden");
+        introScreen.classList.remove("hidden");
+    });
+
+    // Siguiente (Introducción)
+    document.getElementById("next-btn").addEventListener("click", () => {
+        introScreen.classList.add("hidden");
         investScreen.classList.remove("hidden");
     });
 
@@ -30,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function simulatePriceRise() {
         let time = 0;
         const interval = setInterval(() => {
-            currentPrice += 0.1; // Incremento artificial del precio
+            currentPrice += 0.1;
             if (currentPrice >= 5) {
                 clearInterval(interval);
             }
@@ -68,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function simulatePriceCollapse() {
         let time = 0;
         const interval = setInterval(() => {
-            currentPrice -= 0.5; // Caída artificial del precio
+            currentPrice -= 0.5;
             if (currentPrice <= 0.1) {
                 clearInterval(interval);
             }
@@ -84,10 +91,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Reiniciar juego
-    restartBtn.addEventListener("click", () => {
+    document.getElementById("restart-btn").addEventListener("click", () => {
         collapseScreen.classList.add("hidden");
+        explanationScreen.classList.remove("hidden");
+    });
+
+    // Siguiente (Explicación)
+    document.getElementById("next-btn-2").addEventListener("click", () => {
+        explanationScreen.classList.add("hidden");
+        conclusionScreen.classList.remove("hidden");
+    });
+
+    // Reiniciar juego (Conclusión)
+    document.getElementById("restart-btn-2").addEventListener("click", () => {
+        conclusionScreen.classList.add("hidden");
         startScreen.classList.remove("hidden");
         userInvestment = 0;
         currentPrice = 1;
     });
 });
+
+// Funciones para modales
+function openModal(modalId) {
+    document.getElementById(modalId).classList.remove("hidden");
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).classList.add("hidden");
+}

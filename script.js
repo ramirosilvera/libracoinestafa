@@ -61,24 +61,21 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("final-chart").textContent = "Valor final: $" + currentPrice;
   }
 
-  // Si vendes: siempre pierdes, ya que el valor de venta es menor al precio de compra
+  // Si vendes: siempre pierdes, mostrando el mensaje "Llegaste tarde..."
   document.getElementById("sell-btn").addEventListener("click", function() {
     clearInterval(priceInterval);
-    // Valor final al vender: 60% del precio de compra
-    const finalValue = purchasePrice * 0.6;
-    document.getElementById("final-chart").textContent = "Valor final: $" + finalValue;
-    const loss = purchasePrice - finalValue;
-    document.getElementById("result-message").textContent = "Vendiste y perdiste $" + loss.toFixed(2) + " (compraste a $" + purchasePrice.toFixed(2) + ").";
+    // Independientemente del precio simulado, el valor final es 0 y el mensaje indica que perdiste todo
+    document.getElementById("final-chart").textContent = "Valor final: $0";
+    document.getElementById("result-message").textContent = "¡Llegaste tarde! El precio bajó y perdiste todo.";
     showScreen("collapse-screen");
   });
 
-  // Si mantienes: pierdes todo
+  // Si mantienes: pierde todo también
   document.getElementById("hold-btn").addEventListener("click", function() {
     clearInterval(priceInterval);
     setTimeout(function() {
-      const finalValue = 0;
-      document.getElementById("final-chart").textContent = "Valor final: $" + finalValue;
-      document.getElementById("result-message").textContent = "Decidiste mantener, y el precio colapsó. Invertiste $" + currentInvestment + " y ahora vale $" + finalValue + ".";
+      document.getElementById("final-chart").textContent = "Valor final: $0";
+      document.getElementById("result-message").textContent = "¡Llegaste tarde! El precio bajó y perdiste todo.";
       showScreen("collapse-screen");
     }, 2000);
   });

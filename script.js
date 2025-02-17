@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll(".invest-btn").forEach(btn => {
     btn.addEventListener("click", function() {
       currentInvestment = parseInt(this.getAttribute("data-amount"));
-      // Se inicia la simulación del precio en la pantalla de subida
       currentPrice = 100; // precio inicial
       document.getElementById("chart").textContent = "Precio actual: $" + currentPrice;
       showScreen("price-rise-screen");
@@ -77,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // Botón de mantener: simula un colapso del precio
   document.getElementById("hold-btn").addEventListener("click", function() {
     clearInterval(priceInterval);
-    // Se espera 2 segundos antes de simular el colapso
     setTimeout(function() {
       currentPrice = Math.floor(currentPrice * 0.3);
       document.getElementById("final-chart").textContent = "Precio final: $" + currentPrice;
@@ -87,14 +85,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 2000);
   });
   
-  // Botones de reinicio
-  document.getElementById("restart-btn").addEventListener("click", restartGame);
-  document.getElementById("restart-btn-2").addEventListener("click", restartGame);
-  
-  // Botón siguiente en la explicación (para pasar a la conclusión)
+  // Botón siguiente en la explicación para pasar a la conclusión
   document.getElementById("next-btn-2").addEventListener("click", function() {
     showScreen("conclusion-screen");
   });
+  
+  // Botones de reinicio
+  document.getElementById("restart-btn").addEventListener("click", restartGame);
+  document.getElementById("restart-btn-2").addEventListener("click", restartGame);
   
   // Función para reiniciar el juego
   function restartGame() {

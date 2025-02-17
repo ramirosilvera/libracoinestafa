@@ -42,7 +42,7 @@
     <!-- Fase 2: Subida del Precio -->
     <div id="price-rise-screen" class="screen hidden">
       <h2>Subida del Precio</h2>
-      <p>El precio de $LIBRA aumenta rápidamente. Observa cómo sube el valor:</p>
+      <p>El precio de $LIBRA aumenta rápidamente (aunque es artificial). Observa el valor:</p>
       <div id="chart" class="chart">Valor actual: $0</div>
       <div class="image-container">
         <img src="IMG_2288.jpeg" alt="Gráfico de evolución de $LIBRA" class="clickable-image" onclick="openModal('chart-modal')">
@@ -73,13 +73,24 @@
       <p>
         <strong>Abuso de Autoridad:</strong> El uso de figuras públicas para difundir el proyecto se constituyó en un uso indebido del poder, lo que puede acarrear consecuencias legales.
       </p>
-      <p>
-        Se utilizaron las siguientes evidencias:
-        <em>IMG_2286.jpeg</em> (primer tweet promocional), 
-        <em>IMG_2288.jpeg</em> (gráfico del precio), 
-        <em>IMG_2289.png</em> (wallets y cash-out de insiders) y 
-        <em>IMG_2290.jpeg</em> (tweet negando responsabilidad tras el rug pull).
-      </p>
+      <div class="explanation-images">
+        <div class="explanation-image">
+          <img src="IMG_2286.jpeg" alt="Tweet de Milei promocionando $LIBRA">
+          <p>Genera Expectativa</p>
+        </div>
+        <div class="explanation-image">
+          <img src="IMG_2288.jpeg" alt="Gráfico de evolución de $LIBRA">
+          <p>Subida Artificial del Precio</p>
+        </div>
+        <div class="explanation-image">
+          <img src="IMG_2289.png" alt="Wallets y Cash-out de Insiders">
+          <p>Wallets y Cash-out</p>
+        </div>
+        <div class="explanation-image">
+          <img src="IMG_2290.jpeg" alt="Tweet de Milei negándose a asumir responsabilidad">
+          <p>Negación de Responsabilidad</p>
+        </div>
+      </div>
       <h2>Lecciones y Conclusiones</h2>
       <ul>
         <li>Investiga siempre antes de invertir en un proyecto.</li>
@@ -112,7 +123,7 @@
     <div id="tweet2-modal" class="modal hidden">
       <div class="modal-content">
         <span class="close" onclick="closeModal('tweet2-modal')">&times;</span>
-        <img src="IMG_2290.jpeg" alt="Tweet de Milei negando responsabilidad tras el rug pull">
+        <img src="IMG_2290.jpeg" alt="Tweet de Milei negándose a asumir responsabilidad tras el rug pull">
       </div>
     </div>
   </div>

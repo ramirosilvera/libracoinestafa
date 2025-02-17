@@ -96,19 +96,23 @@ button:hover {
   cursor: pointer;
 }
 
-/* Estilos para imágenes de la explicación */
+/* Ajuste del contenedor de imágenes en la explicación */
 .explanation-images {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
-  margin: 20px 0;
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 600px;
 }
 .explanation-image {
-  flex: 1 1 200px;
-  margin: 10px;
+  flex: 1 1 150px;
+  max-width: 150px;
+  text-align: center;
 }
 .explanation-image img {
-  max-width: 100%;
+  width: 100%;
+  height: auto;
   border: 2px solid #007BFF;
   border-radius: 5px;
 }

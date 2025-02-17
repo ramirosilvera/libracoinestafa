@@ -1,132 +1,136 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Juego de la Estafa de $LIBRA</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Juego de la Estafa de $LIBRA</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="game-container">
-        <!-- Pantalla de Inicio -->
-        <div id="start-screen" class="screen">
-            <h1>El Juego de la Estafa de $LIBRA</h1>
-            <p>Aprende cómo los insiders estafaron a miles de inversores y cómo protegerte.</p>
-            <button id="start-btn">Comenzar</button>
-        </div>
-
-        <!-- Introducción Educativa -->
-        <div id="intro-screen" class="screen hidden">
-            <h2>¿Qué es $LIBRA?</h2>
-            <p>El proyecto fue promocionado por Javier Milei en sus redes sociales:</p>
-            <div class="image-container">
-                <img 
-                    src="IMG_2286.jpeg" 
-                    alt="Tweet de Milei promocionando $LIBRA" 
-                    class="clickable-image"
-                    onclick="openModal('tweet-modal')"
-                >
-            </div>
-            <button id="next-btn">Siguiente</button>
-        </div>
-
-        <!-- Fase 1: Decisión de Invertir -->
-        <div id="invest-screen" class="screen hidden">
-            <h2>Decisión de Invertir</h2>
-            <p>Un "amigo" te recomienda invertir en $LIBRA. ¿Cuánto quieres invertir?</p>
-            <button class="invest-btn" data-amount="100">Invertir $100</button>
-            <button class="invest-btn" data-amount="500">Invertir $500</button>
-            <button class="invest-btn" data-amount="1000">Invertir $1000</button>
-        </div>
-
-        <!-- Fase 2: Subida del Precio -->
-        <div id="price-rise-screen" class="screen hidden">
-            <h2>Subida del Precio</h2>
-            <p>El precio de $LIBRA está subiendo rápidamente. ¿Qué quieres hacer?</p>
-            <button id="sell-btn">Vender ahora</button>
-            <button id="hold-btn">Mantener</button>
-            <div id="chart"></div>
-            <div class="image-container">
-                <img 
-                    src="IMG_2288.jpeg" 
-                    alt="Gráfico de evolución de $LIBRA" 
-                    class="clickable-image"
-                    onclick="openModal('chart-modal')"
-                >
-            </div>
-        </div>
-
-        <!-- Fase 3: Colapso del Precio -->
-        <div id="collapse-screen" class="screen hidden">
-            <h2>Colapso del Precio</h2>
-            <p id="result-message"></p>
-            <div id="final-chart"></div>
-            <button id="restart-btn">Jugar de nuevo</button>
-        </div>
-
-        <!-- Explicación Detallada -->
-        <div id="explanation-screen" class="screen hidden">
-            <h2>¿Qué Sucedió Realmente?</h2>
-            <p>Los insiders controlaban el 70% de los tokens y retiraron los fondos:</p>
-            <div class="image-container">
-                <img 
-                    src="IMG_2289.png" 
-                    alt="Direcciones de billeteras y cash-out de insiders" 
-                    class="clickable-image"
-                    onclick="openModal('wallets-modal')"
-                >
-            </div>
-            <button id="next-btn-2">Siguiente</button>
-        </div>
-
-        <!-- Conclusión y Consejos -->
-        <div id="conclusion-screen" class="screen hidden">
-            <h2>Lecciones Aprendidas</h2>
-            <p>Javier Milei negó responsabilidad tras el colapso:</p>
-            <div class="image-container">
-                <img 
-                    src="IMG_2290.jpeg" 
-                    alt="Tweet de Milei negando responsabilidad" 
-                    class="clickable-image"
-                    onclick="openModal('tweet2-modal')"
-                >
-            </div>
-            <p>Consejos para evitar estafas cripto:</p>
-            <ul>
-                <li>Investiga el equipo detrás del proyecto.</li>
-                <li>Verifica la distribución de tokens.</li>
-                <li>Evita proyectos que dependen demasiado de promociones de figuras públicas.</li>
-            </ul>
-            <button id="restart-btn-2">Jugar de nuevo</button>
-        </div>
-
-        <!-- Modales -->
-        <div id="tweet-modal" class="modal hidden">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('tweet-modal')">&times;</span>
-                <img src="IMG_2286.jpeg" alt="Tweet de Milei (zoom)">
-            </div>
-        </div>
-        <div id="chart-modal" class="modal hidden">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('chart-modal')">&times;</span>
-                <img src="IMG_2288.jpeg" alt="Gráfico de evolución de $LIBRA (zoom)">
-            </div>
-        </div>
-        <div id="wallets-modal" class="modal hidden">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('wallets-modal')">&times;</span>
-                <img src="IMG_2289.png" alt="Direcciones de billeteras y cash-out de insiders (zoom)">
-            </div>
-        </div>
-        <div id="tweet2-modal" class="modal hidden">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('tweet2-modal')">&times;</span>
-                <img src="IMG_2290.jpeg" alt="Tweet de Milei negando responsabilidad (zoom)">
-            </div>
-        </div>
+  <div id="game-container">
+    <!-- Pantalla de Inicio -->
+    <div id="start-screen" class="screen">
+      <h1>El Juego de la Estafa de $LIBRA</h1>
+      <p>Aprende cómo los insiders estafaron a miles de inversores y cómo protegerte.</p>
+      <button id="start-btn">Comenzar</button>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Introducción Educativa -->
+    <div id="intro-screen" class="screen hidden">
+      <h2>¿Qué es $LIBRA?</h2>
+      <p>El proyecto fue promocionado por Javier Milei en sus redes sociales:</p>
+      <div class="image-container">
+        <img 
+          src="IMG_2286.jpeg" 
+          alt="Tweet de Milei promocionando $LIBRA" 
+          class="clickable-image"
+          onclick="openModal('tweet-modal')"
+        >
+      </div>
+      <button id="next-btn">Siguiente</button>
+    </div>
+
+    <!-- Fase 1: Decisión de Invertir -->
+    <div id="invest-screen" class="screen hidden">
+      <h2>Decisión de Invertir</h2>
+      <p>Un "amigo" te recomienda invertir en $LIBRA. ¿Cuánto quieres invertir?</p>
+      <div class="button-group">
+        <button class="invest-btn" data-amount="100">$100</button>
+        <button class="invest-btn" data-amount="500">$500</button>
+        <button class="invest-btn" data-amount="1000">$1000</button>
+      </div>
+    </div>
+
+    <!-- Fase 2: Subida del Precio -->
+    <div id="price-rise-screen" class="screen hidden">
+      <h2>Subida del Precio</h2>
+      <p>El precio de $LIBRA está subiendo rápidamente. ¿Qué quieres hacer?</p>
+      <div class="button-group">
+        <button id="sell-btn">Vender ahora</button>
+        <button id="hold-btn">Mantener</button>
+      </div>
+      <div id="chart" class="chart">Precio actual: $100</div>
+      <div class="image-container">
+        <img 
+          src="IMG_2288.jpeg" 
+          alt="Gráfico de evolución de $LIBRA" 
+          class="clickable-image"
+          onclick="openModal('chart-modal')"
+        >
+      </div>
+    </div>
+
+    <!-- Fase 3: Colapso del Precio -->
+    <div id="collapse-screen" class="screen hidden">
+      <h2>Colapso del Precio</h2>
+      <p id="result-message"></p>
+      <div id="final-chart" class="chart">Precio final: $0</div>
+      <button id="restart-btn">Jugar de nuevo</button>
+    </div>
+
+    <!-- Explicación Detallada -->
+    <div id="explanation-screen" class="screen hidden">
+      <h2>¿Qué Sucedió Realmente?</h2>
+      <p>Los insiders controlaban el 70% de los tokens y retiraron los fondos:</p>
+      <div class="image-container">
+        <img 
+          src="IMG_2289.png" 
+          alt="Direcciones de billeteras y cash-out de insiders" 
+          class="clickable-image"
+          onclick="openModal('wallets-modal')"
+        >
+      </div>
+      <button id="next-btn-2">Siguiente</button>
+    </div>
+
+    <!-- Conclusión y Consejos -->
+    <div id="conclusion-screen" class="screen hidden">
+      <h2>Lecciones Aprendidas</h2>
+      <p>Javier Milei negó responsabilidad tras el colapso:</p>
+      <div class="image-container">
+        <img 
+          src="IMG_2290.jpeg" 
+          alt="Tweet de Milei negando responsabilidad" 
+          class="clickable-image"
+          onclick="openModal('tweet2-modal')"
+        >
+      </div>
+      <p>Consejos para evitar estafas cripto:</p>
+      <ul>
+        <li>Investiga el equipo detrás del proyecto.</li>
+        <li>Verifica la distribución de tokens.</li>
+        <li>Evita proyectos que dependen demasiado de promociones de figuras públicas.</li>
+      </ul>
+      <button id="restart-btn-2">Jugar de nuevo</button>
+    </div>
+
+    <!-- Modales -->
+    <div id="tweet-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('tweet-modal')">&times;</span>
+        <img src="IMG_2286.jpeg" alt="Tweet de Milei (zoom)">
+      </div>
+    </div>
+    <div id="chart-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('chart-modal')">&times;</span>
+        <img src="IMG_2288.jpeg" alt="Gráfico de evolución de $LIBRA (zoom)">
+      </div>
+    </div>
+    <div id="wallets-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('wallets-modal')">&times;</span>
+        <img src="IMG_2289.png" alt="Direcciones de billeteras y cash-out de insiders (zoom)">
+      </div>
+    </div>
+    <div id="tweet2-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('tweet2-modal')">&times;</span>
+        <img src="IMG_2290.jpeg" alt="Tweet de Milei negando responsabilidad (zoom)">
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,121 +1,106 @@
-// script.js
-document.addEventListener("DOMContentLoaded", () => {
-    const startScreen = document.getElementById("start-screen");
-    const introScreen = document.getElementById("intro-screen");
-    const investScreen = document.getElementById("invest-screen");
-    const priceRiseScreen = document.getElementById("price-rise-screen");
-    const collapseScreen = document.getElementById("collapse-screen");
-    const explanationScreen = document.getElementById("explanation-screen");
-    const conclusionScreen = document.getElementById("conclusion-screen");
-
-    let userInvestment = 0;
-    let currentPrice = 1;
-
-    // Iniciar juego
-    document.getElementById("start-btn").addEventListener("click", () => {
-        startScreen.classList.add("hidden");
-        introScreen.classList.remove("hidden");
+document.addEventListener("DOMContentLoaded", function() {
+  let currentInvestment = 0;
+  let priceInterval;
+  let currentPrice = 100;
+  
+  // Función para mostrar una pantalla y ocultar las demás
+  function showScreen(screenId) {
+    const screens = document.querySelectorAll('.screen');
+    screens.forEach(screen => {
+      screen.classList.add('hidden');
     });
-
-    // Siguiente (Introducción)
-    document.getElementById("next-btn").addEventListener("click", () => {
-        introScreen.classList.add("hidden");
-        investScreen.classList.remove("hidden");
+    document.getElementById(screenId).classList.remove('hidden');
+  }
+  
+  // Funciones para abrir y cerrar modales
+  window.openModal = function(modalId) {
+    document.getElementById(modalId).style.display = "block";
+  }
+  
+  window.closeModal = function(modalId) {
+    document.getElementById(modalId).style.display = "none";
+  }
+  
+  // Botón de inicio
+  document.getElementById("start-btn").addEventListener("click", function() {
+    showScreen("intro-screen");
+  });
+  
+  // Botón siguiente en la introducción
+  document.getElementById("next-btn").addEventListener("click", function() {
+    showScreen("invest-screen");
+  });
+  
+  // Botones de inversión
+  document.querySelectorAll(".invest-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+      currentInvestment = parseInt(this.getAttribute("data-amount"));
+      // Se inicia la simulación del precio en la pantalla de subida
+      currentPrice = 100; // precio inicial
+      document.getElementById("chart").textContent = "Precio actual: $" + currentPrice;
+      showScreen("price-rise-screen");
+      startPriceSimulation();
     });
-
-    // Decisión de invertir
-    document.querySelectorAll(".invest-btn").forEach(button => {
-        button.addEventListener("click", (e) => {
-            userInvestment = parseInt(e.target.getAttribute("data-amount"));
-            investScreen.classList.add("hidden");
-            priceRiseScreen.classList.remove("hidden");
-            simulatePriceRise();
-        });
-    });
-
-    // Simular subida del precio
-    function simulatePriceRise() {
-        let time = 0;
-        const interval = setInterval(() => {
-            currentPrice += 0.1;
-            if (currentPrice >= 5) {
-                clearInterval(interval);
-            }
-            updateChart();
-            time++;
-        }, 500);
+  });
+  
+  // Función de simulación de precio
+  function startPriceSimulation() {
+    if (priceInterval) clearInterval(priceInterval);
+    priceInterval = setInterval(function() {
+      // Incrementa el precio de forma aleatoria entre 1 y 10
+      const increase = Math.floor(Math.random() * 10) + 1;
+      currentPrice += increase;
+      document.getElementById("chart").textContent = "Precio actual: $" + currentPrice;
+    }, 1000);
+  }
+  
+  // Detener la simulación y mostrar precio final
+  function stopPriceSimulation() {
+    clearInterval(priceInterval);
+    document.getElementById("final-chart").textContent = "Precio final: $" + currentPrice;
+  }
+  
+  // Botón de vender
+  document.getElementById("sell-btn").addEventListener("click", function() {
+    clearInterval(priceInterval);
+    stopPriceSimulation();
+    let resultMessage = "";
+    if (currentPrice > 100) {
+      resultMessage = "¡Bien hecho! Vendiste a tiempo y obtuviste una ganancia de $" + (currentPrice - 100) + ".";
+    } else {
+      resultMessage = "Vendiste, pero no obtuviste ganancia.";
     }
-
-    // Actualizar gráfico
-    function updateChart() {
-        const chart = document.getElementById("chart");
-        chart.innerHTML = `<p>Precio actual: $${currentPrice.toFixed(2)}</p>`;
-    }
-
-    // Decisión de vender o mantener
-    document.getElementById("sell-btn").addEventListener("click", () => {
-        const profit = userInvestment * (currentPrice - 1);
-        resultMessage.textContent = `¡Buen movimiento! Vendiste a tiempo y obtuviste una ganancia de $${profit.toFixed(2)}. Pero mira cómo el precio colapsó después.`;
-        showCollapse();
-    });
-
-    document.getElementById("hold-btn").addEventListener("click", () => {
-        resultMessage.textContent = `¡Oh no! El precio colapsó y perdiste tu inversión de $${userInvestment}.`;
-        showCollapse();
-    });
-
-    // Mostrar colapso del precio
-    function showCollapse() {
-        priceRiseScreen.classList.add("hidden");
-        collapseScreen.classList.remove("hidden");
-        simulatePriceCollapse();
-    }
-
-    // Simular colapso del precio
-    function simulatePriceCollapse() {
-        let time = 0;
-        const interval = setInterval(() => {
-            currentPrice -= 0.5;
-            if (currentPrice <= 0.1) {
-                clearInterval(interval);
-            }
-            updateFinalChart();
-            time++;
-        }, 500);
-    }
-
-    // Actualizar gráfico final
-    function updateFinalChart() {
-        const finalChart = document.getElementById("final-chart");
-        finalChart.innerHTML = `<p>Precio final: $${currentPrice.toFixed(2)}</p>`;
-    }
-
-    // Reiniciar juego
-    document.getElementById("restart-btn").addEventListener("click", () => {
-        collapseScreen.classList.add("hidden");
-        explanationScreen.classList.remove("hidden");
-    });
-
-    // Siguiente (Explicación)
-    document.getElementById("next-btn-2").addEventListener("click", () => {
-        explanationScreen.classList.add("hidden");
-        conclusionScreen.classList.remove("hidden");
-    });
-
-    // Reiniciar juego (Conclusión)
-    document.getElementById("restart-btn-2").addEventListener("click", () => {
-        conclusionScreen.classList.add("hidden");
-        startScreen.classList.remove("hidden");
-        userInvestment = 0;
-        currentPrice = 1;
-    });
+    document.getElementById("result-message").textContent = resultMessage;
+    showScreen("collapse-screen");
+  });
+  
+  // Botón de mantener: simula un colapso del precio
+  document.getElementById("hold-btn").addEventListener("click", function() {
+    clearInterval(priceInterval);
+    // Se espera 2 segundos antes de simular el colapso
+    setTimeout(function() {
+      currentPrice = Math.floor(currentPrice * 0.3);
+      document.getElementById("final-chart").textContent = "Precio final: $" + currentPrice;
+      let resultMessage = "El precio colapsó. Invertiste $" + currentInvestment + " y ahora vale $" + currentPrice + ".";
+      document.getElementById("result-message").textContent = resultMessage;
+      showScreen("collapse-screen");
+    }, 2000);
+  });
+  
+  // Botones de reinicio
+  document.getElementById("restart-btn").addEventListener("click", restartGame);
+  document.getElementById("restart-btn-2").addEventListener("click", restartGame);
+  
+  // Botón siguiente en la explicación (para pasar a la conclusión)
+  document.getElementById("next-btn-2").addEventListener("click", function() {
+    showScreen("conclusion-screen");
+  });
+  
+  // Función para reiniciar el juego
+  function restartGame() {
+    currentInvestment = 0;
+    currentPrice = 100;
+    clearInterval(priceInterval);
+    showScreen("start-screen");
+  }
 });
-
-// Funciones para modales
-function openModal(modalId) {
-    document.getElementById(modalId).classList.remove("hidden");
-}
-
-function closeModal(modalId) {
-    document.getElementById(modalId).classList.add("hidden");
-}

@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
   let currentInvestment = 0;  // Monto invertido (100, 500 o 1000)
-  let purchasePrice = 0;      // Precio de compra (para simular que compras caro)
+  let purchasePrice = 0;      // Precio de compra (simulado, 20% más alto)
   let priceInterval;          // Intervalo de simulación del precio
-  let currentPrice = 0;       // Precio simulado (se muestra en el gráfico)
+  let currentPrice = 0;       // Precio simulado
 
   // Función para mostrar una pantalla y ocultar las demás
   function showScreen(screenId) {
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll(".invest-btn").forEach(btn => {
     btn.addEventListener("click", function() {
       currentInvestment = parseInt(this.getAttribute("data-amount"));
-      // Simulamos que compras caro: pagas un 20% más de lo que invertiste
+      // Simulamos que compras caro: pagas un 20% más de lo invertido
       purchasePrice = currentInvestment * 1.2;
       // El precio simulado comienza en el precio de compra
       currentPrice = purchasePrice;
@@ -44,11 +44,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  // Simulación del aumento del precio (el gráfico)
+  // Simulación del incremento del precio (para dar la ilusión del hype)
   function startPriceSimulation() {
     if (priceInterval) clearInterval(priceInterval);
     priceInterval = setInterval(function() {
-      // Incrementa el precio aleatoriamente para mostrar el "hype"
+      // Se aumenta el precio de forma aleatoria, pero no lo usamos al vender
       const increase = Math.floor(Math.random() * 10) + 1;
       currentPrice += increase;
       document.getElementById("chart").textContent = "Valor actual: $" + currentPrice;
@@ -61,18 +61,18 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("final-chart").textContent = "Valor final: $" + currentPrice;
   }
 
-  // Si vendes: siempre pierdes, aunque no tanto (pérdida del 20% sobre la inversión original)
+  // Si vendes: siempre pierdes, ya que el valor de venta es menor al precio de compra
   document.getElementById("sell-btn").addEventListener("click", function() {
     clearInterval(priceInterval);
-    // Resultado forzado: 20% de pérdida respecto a la inversión original
-    const finalValue = currentInvestment * 0.8;
+    // Valor final al vender: 60% del precio de compra
+    const finalValue = purchasePrice * 0.6;
     document.getElementById("final-chart").textContent = "Valor final: $" + finalValue;
-    const loss = currentInvestment - finalValue;
-    document.getElementById("result-message").textContent = "Vendiste a tiempo, pero perdiste $" + loss + ".";
+    const loss = purchasePrice - finalValue;
+    document.getElementById("result-message").textContent = "Vendiste y perdiste $" + loss.toFixed(2) + " (compraste a $" + purchasePrice.toFixed(2) + ").";
     showScreen("collapse-screen");
   });
 
-  // Si mantienes: pierdes todo (100% de pérdida)
+  // Si mantienes: pierdes todo
   document.getElementById("hold-btn").addEventListener("click", function() {
     clearInterval(priceInterval);
     setTimeout(function() {
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
     showScreen("final-screen");
   });
 
-  // Botón para reiniciar el juego (disponible en la pantalla final)
+  // Botón para reiniciar el juego
   document.getElementById("restart-btn").addEventListener("click", restartGame);
 
   function restartGame() {

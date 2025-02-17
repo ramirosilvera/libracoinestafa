@@ -96,6 +96,27 @@ button:hover {
   cursor: pointer;
 }
 
+/* Estilos para imágenes de la explicación */
+.explanation-images {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.explanation-image {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+.explanation-image img {
+  max-width: 100%;
+  border: 2px solid #007BFF;
+  border-radius: 5px;
+}
+.explanation-image p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   #game-container {

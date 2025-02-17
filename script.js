@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-  let currentInvestment = 0;  // Monto invertido (100, 500 o 1000)
-  let purchasePrice = 0;      // Precio de compra (simulado, 20% más alto)
+  let currentInvestment = 0;  // Monto invertido (según la opción seleccionada)
+  let purchasePrice = 0;      // Precio de compra simulado (20% más alto)
   let priceInterval;          // Intervalo de simulación del precio
   let currentPrice = 0;       // Precio simulado
 
@@ -61,16 +61,15 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("final-chart").textContent = "Valor final: $" + currentPrice;
   }
 
-  // Si vendes: siempre pierdes, mostrando el mensaje "Llegaste tarde..."
+  // Si vendes: siempre pierdes, mostrando el mensaje "¡Llegaste tarde!..."
   document.getElementById("sell-btn").addEventListener("click", function() {
     clearInterval(priceInterval);
-    // Independientemente del precio simulado, el valor final es 0 y el mensaje indica que perdiste todo
     document.getElementById("final-chart").textContent = "Valor final: $0";
     document.getElementById("result-message").textContent = "¡Llegaste tarde! El precio bajó y perdiste todo.";
     showScreen("collapse-screen");
   });
 
-  // Si mantienes: pierde todo también
+  // Si mantienes: también pierdes todo
   document.getElementById("hold-btn").addEventListener("click", function() {
     clearInterval(priceInterval);
     setTimeout(function() {

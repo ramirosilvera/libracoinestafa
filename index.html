@@ -11,14 +11,17 @@
     <!-- Pantalla de Inicio -->
     <div id="start-screen" class="screen">
       <h1>El Juego de la Estafa de $LIBRA</h1>
-      <p>Aprende cómo se manipula el mercado y se engañan a los inversores.</p>
+      <p>Descubre cómo se manipula el mercado y se engañan a los inversores.</p>
       <button id="start-btn">Comenzar</button>
     </div>
 
     <!-- Introducción Educativa -->
     <div id="intro-screen" class="screen hidden">
       <h2>¿Qué es $LIBRA?</h2>
-      <p>El proyecto fue promocionado inicialmente en redes sociales. Mira el primer tweet de promoción:</p>
+      <p>
+        El proyecto se promovió a través de redes sociales, generando gran expectativa.
+        Observa el primer tweet de promoción:
+      </p>
       <div class="image-container">
         <img src="IMG_2286.jpeg" alt="Tweet de Milei promocionando $LIBRA" class="clickable-image" onclick="openModal('tweet-modal')">
       </div>
@@ -39,7 +42,7 @@
     <!-- Fase 2: Subida del Precio -->
     <div id="price-rise-screen" class="screen hidden">
       <h2>Subida del Precio</h2>
-      <p>El precio de $LIBRA está aumentando rápidamente. Observa cómo se incrementa el valor:</p>
+      <p>El precio de $LIBRA aumenta rápidamente. Observa cómo sube el valor:</p>
       <div id="chart" class="chart">Precio actual: $100</div>
       <div class="image-container">
         <img src="IMG_2288.jpeg" alt="Gráfico de evolución de $LIBRA" class="clickable-image" onclick="openModal('chart-modal')">
@@ -55,40 +58,36 @@
       <h2>Colapso del Precio</h2>
       <p id="result-message"></p>
       <div id="final-chart" class="chart">Precio final: $0</div>
+      <button id="final-btn">Ver Explicación y Conclusiones</button>
+    </div>
+
+    <!-- Pantalla Final: Explicación y Conclusiones -->
+    <div id="final-screen" class="screen hidden">
+      <h2>Explicación Detallada de la Estafa</h2>
+      <p>
+        <strong>Pump and Dump:</strong> Se crea un gran hype mediante redes sociales y tweets, inflando artificialmente el precio del token.
+      </p>
+      <p>
+        <strong>Rug Pull:</strong> Los insiders, que controlaban gran parte de los tokens, retiran masivamente sus fondos, provocando el colapso del precio y dejando a los inversores con tokens sin valor.
+      </p>
+      <p>
+        <strong>Abuso de Autoridad:</strong> La promoción del proyecto utilizando figuras públicas (incluso respaldadas por investiduras) se constituyó en un uso indebido del poder para difundir información engañosa.
+      </p>
+      <p>
+        En el caso de $LIBRA se usó:
+        <em>IMG_2286.jpeg</em> para generar expectativa, 
+        <em>IMG_2288.jpeg</em> para mostrar la subida artificial del precio, 
+        <em>IMG_2289.png</em> para evidenciar las billeteras y cash-out de los insiders, y
+        <em>IMG_2290.jpeg</em> para mostrar el tweet de Milei negándose a asumir responsabilidad.
+      </p>
+      <h2>Lecciones y Conclusiones</h2>
+      <ul>
+        <li>Investiga siempre a fondo antes de invertir en cualquier proyecto.</li>
+        <li>Verifica la distribución de tokens y la identidad del equipo detrás del proyecto.</li>
+        <li>No te dejes llevar por el hype y las promociones sin fundamentos sólidos.</li>
+        <li>El uso indebido de figuras públicas y la investidura puede tener consecuencias legales.</li>
+      </ul>
       <button id="restart-btn">Jugar de nuevo</button>
-    </div>
-
-    <!-- Explicación Detallada de la Estafa -->
-    <div id="explanation-screen" class="screen hidden">
-      <h2>¿Qué Sucedió Realmente?</h2>
-      <p>El esquema funcionó de la siguiente manera:</p>
-      <ul>
-        <li><strong>Pump and Dump:</strong> Se generó una campaña de hype para inflar artificialmente el precio de $LIBRA a través de tweets y promociones.</li>
-        <li><strong>Rug Pull:</strong> Los insiders, que controlaban el 70% de los tokens, retiraron masivamente sus fondos, provocando el colapso del precio.</li>
-        <li><strong>Abuso de Autoridad:</strong> La difusión del proyecto utilizando figuras públicas, incluso desde una investidura presidencial, constituye un uso indebido del poder para promover un esquema fraudulento.</li>
-      </ul>
-      <p>Mira las evidencias:</p>
-      <div class="image-container">
-        <img src="IMG_2289.png" alt="Direcciones de billeteras y cash-out de insiders" class="clickable-image" onclick="openModal('wallets-modal')">
-      </div>
-      <div class="image-container">
-        <img src="IMG_2290.jpeg" alt="Tweet de Milei negando responsabilidad tras el rug pull" class="clickable-image" onclick="openModal('tweet2-modal')">
-      </div>
-      <p>Este esquema se conoce como <em>pump and dump</em> y <em>rug pull</em>, utilizados para defraudar a miles de inversores.</p>
-      <button id="next-btn-2">Siguiente</button>
-    </div>
-
-    <!-- Conclusión y Lecciones Aprendidas -->
-    <div id="conclusion-screen" class="screen hidden">
-      <h2>Lecciones Aprendidas</h2>
-      <p>Es vital investigar antes de invertir y ser crítico ante las promesas de altos rendimientos.</p>
-      <ul>
-        <li>Verifica el equipo y la distribución de tokens del proyecto.</li>
-        <li>No te dejes llevar por el hype y las promociones en redes sociales.</li>
-        <li>Utiliza fuentes confiables y asesoría financiera antes de invertir.</li>
-      </ul>
-      <p>El uso indebido de la investidura para promover proyectos basura no solo es éticamente reprobable, sino que también puede tener consecuencias legales.</p>
-      <button id="restart-btn-2">Jugar de nuevo</button>
     </div>
 
     <!-- Modales -->
